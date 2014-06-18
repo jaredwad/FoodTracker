@@ -40,15 +40,6 @@
             else { echo "made it!!!"; }
         }
         
-        else if (isset($_COOKIE["token"])) {
-            $mysqli = new mysqli_connect("localhost", "FTselect", "select", "FoodTracker");
-            
-            // Check connection
-            if (mysqli_connect_errno()) {
-                  echo "Failed to connect to MySQL: " . mysqli_connect_error();
-            }
-        }
-        
         mysqli_close($mysqli);
         
     ?>
