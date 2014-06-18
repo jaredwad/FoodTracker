@@ -42,6 +42,9 @@
                 $result = mysqli_query($con,"SELECT email FROM users");
                 
                 while($row = mysqli_fetch_array($result)) {
+                    echo $row['email'] + " : " + $_POST['email'];
+                    echo $row['pass']  + " : " + $_POST['pass'];
+                    
                     if ($row['email'] == $_POST['email'] && $row['pass'] == $_POST['pass'])
                         header('Location: home.php');
                 }
