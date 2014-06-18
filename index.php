@@ -30,15 +30,17 @@
     <?php
         if (!empty($_POST["email"]) && !empty($_POST["pass"])) {
             // create connection
-            $mysqli = mysqli_connect("localhost", "FTselect", "select", "FoodTracker");
+            $con = mysqli_connect("localhost", "FTselect", "select", "FoodTracker");
             //$con=mysqli_connect("example.com","peter","abc123","my_db");
             
             // Check connection
             if (mysqli_connect_errno()) {
-                  echo "Failed to connect to MySQL: " . mysqli_connect_error();
+                echo "Failed to connect to MySQL: " . mysqli_connect_error();
             }
             
-            else { echo "made it!!!"; }
+            else { 
+                $result = mysqli_query($con,"SELECT name FROM users where ");
+            }
         }
         
         mysqli_close($mysqli);
