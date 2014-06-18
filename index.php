@@ -39,7 +39,12 @@
             }
             
             else { 
-                $result = mysqli_query($con,"SELECT name FROM users where ");
+                $result = mysqli_query($con,"SELECT email FROM users");
+                
+                while($row = mysqli_fetch_array($result)) {
+                    if ($row['email'] == $_POST['email'] && $row['pass'] == $_POST['pass'])
+                        header('Location: home.php');
+                }
             }
         }
         
