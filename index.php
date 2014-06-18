@@ -28,7 +28,7 @@
 <body>
     
     <?php
-        if (!empty($_POST["user"]) && !empty($_POST["pass"])) {
+        if (!empty($_POST["email"]) && !empty($_POST["pass"])) {
             // create connection
             $mysqli = new mysqli("localhost", "FTselect", "select", "FoodTracker");
             
