@@ -28,7 +28,7 @@
 <body>
     
     <?php
-        if (isset($_COOKIE["user"]) && isset($_COOKIE["pass"])) {
+        if (!empty($_POST["user"]) && !empty($_POST["pass"])) {
             // create connection
             $mysqli = new mysqli("localhost", "FTselect", "select", "FoodTracker");
             
