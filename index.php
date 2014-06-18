@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
+    <meta name="description" content="Jared Wadsworth homepage">
     <meta name="author" content="Jared Wadsworth">
     <link rel="shortcut icon" href="images/wheat-icon.ico">
 
@@ -30,13 +30,24 @@
     <?php
         if (!empty($_POST["email"]) && !empty($_POST["pass"])) {
             // create connection
-            $mysqli = new mysqli("localhost", "FTselect", "select", "FoodTracker");
+            $mysqli = new mysqli_connect("localhost", "FTselect", "select", "FoodTracker");
             
             // Check connection
             if (mysqli_connect_errno()) {
                   echo "Failed to connect to MySQL: " . mysqli_connect_error();
             }
         }
+        
+        else if (isset($_COOKIE["token"])) {
+            $mysqli = new mysqli_connect("localhost", "FTselect", "select", "FoodTracker");
+            
+            // Check connection
+            if (mysqli_connect_errno()) {
+                  echo "Failed to connect to MySQL: " . mysqli_connect_error();
+            }
+        }
+        
+        mysqli_close($mysqli);
         
     ?>
 
