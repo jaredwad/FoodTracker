@@ -32,7 +32,7 @@
             // create connection
             $mysqli = new mysqli("localhost", "FTselect", "select", "FoodTracker");
             
-            echo "Made the connection<br>"
+            echo "Made the connection<br>";
             
             // Check connection
             if (mysqli_connect_errno()) {
