@@ -32,8 +32,6 @@
             // create connection
             $mysqli = new mysqli("localhost", "FTselect", "select", "FoodTracker");
             
-            echo "Made the connection<br>";
-            
             // Check connection
             if (mysqli_connect_errno()) {
                   echo "Failed to connect to MySQL: " . mysqli_connect_error();
