@@ -30,7 +30,8 @@
     <?php
         if (!empty($_POST["email"]) && !empty($_POST["pass"])) {
             // create connection
-            $mysqli = new mysqli_connect("localhost", "FTselect", "select", "FoodTracker");
+            $mysqli = mysqli_connect("localhost", "FTselect", "select", "FoodTracker");
+            //$con=mysqli_connect("example.com","peter","abc123","my_db");
             
             // Check connection
             if (mysqli_connect_errno()) {
