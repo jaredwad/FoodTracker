@@ -1,3 +1,6 @@
+
+<html><body></body></html>
+
 <?php
 $email = $_POST("email");
 $pass  = $_POST("pass");
@@ -15,3 +18,4 @@ if (!$con)
 
 mysql_close($con);
 ?>
+</body></html>
