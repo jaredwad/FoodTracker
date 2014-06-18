@@ -39,7 +39,12 @@
             }
             
             else { 
-                $result = mysqli_query($con,"SELECT email FROM users");
+                
+                echo "tried to do a query";
+                
+                $result = mysqli_query($con,"SELECT * FROM user");
+                
+                if ($result) { echo "error in query"; }
                 
                 while($row = mysqli_fetch_array($result)) {
                     echo $row['email'] + " : " + $_POST['email'];
