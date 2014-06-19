@@ -28,10 +28,10 @@
 <body>
     
     <?php
+        // checks if the the user came here through a post (most likely itself)
         if (!empty($_POST["email"]) && !empty($_POST["pass"])) {
             // create connection
             $con = mysqli_connect("localhost", "FTselect", "select", "FoodTracker");
-            //$con=mysqli_connect("example.com","peter","abc123","my_db");
             
             // Check connection
             if (mysqli_connect_errno()) {
@@ -44,12 +44,15 @@
                 
                 $result = mysqli_query($con,"SELECT * FROM user");
                 
+                // Checks if the query is returning a result
                 if ($result) { echo "error in query"; }
-                
+
+                //  Loops through data set and checks for the user               
                 while($row = mysqli_fetch_array($result)) {
                     echo $row['email'] + " : " + $_POST['email'];
                     echo $row['pass']  + " : " + $_POST['pass'];
-                    
+                 
+                    //redirect them to the home page if they are a registered user   
                     if ($row['email'] == $_POST['email'] && $row['pass'] == $_POST['pass'])
                         header('Location: home.php');
                 }
