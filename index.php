@@ -52,13 +52,19 @@
                     //redirect them to the home page if they are a registered user   
                     if ($row['email'] == $_POST['email'] && $row['pass'] == $_POST['pass']) {
                         
+                        echo $row['first_name'];
+                        echo $row['middle_name'];
+                        echo $row['last_name'];
+                        echo $row['email'];
+                        echo $row['last_login'];
+                        
                         $_SESSION['first_name']  = $row['first_name'];
                         $_SESSION['middle_name'] = $row['middle_name'];
                         $_SESSION['last_name']   = $row['last_name'];
                         $_SESSION['email']       = $row['email'];
                         $_SESSION['last_login']  = $row['last_login'];
                         
-                        header('Location: home.php');
+//                        header('Location: home.php');
                     }
                 }
             }
