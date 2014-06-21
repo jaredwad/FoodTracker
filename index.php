@@ -52,11 +52,11 @@
                     //redirect them to the home page if they are a registered user   
                     if ($row['email'] == $_POST['email'] && $row['pass'] == $_POST['pass']) {
                         
-                        echo $row['first_name'];
-                        echo $row['middle_name'];
-                        echo $row['last_name'];
-                        echo $row['email'];
-                        echo $row['last_login'];
+                        echo $row['first_name'] . '<br>';
+                        echo $row['middle_name'] . '<br>';
+                        echo $row['last_name'] . '<br>';
+                        echo $row['email'] . '<br>';
+                        echo $row['last_login'] . '<br>';
                         
                         $_SESSION['first_name']  = $row['first_name'];
                         $_SESSION['middle_name'] = $row['middle_name'];
