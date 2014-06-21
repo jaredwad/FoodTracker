@@ -40,7 +40,7 @@
             
             else { 
                 
-                $query = "SELECT * FROM user WHERE email ='" + $_POST['email'] + "';";
+                $query = "SELECT * FROM user WHERE email =\'" + $_POST['email'] + "\';";
                 
                 echo $query;
                 
