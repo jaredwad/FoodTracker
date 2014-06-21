@@ -40,7 +40,11 @@
             
             else { 
                 
-                $result = mysqli_query($con,"SELECT * FROM user WHERE email ='" + $_POST['email'] + "';");
+                $query = "SELECT * FROM user WHERE email ='" + $_POST['email'] + "';"
+                
+                echo $query;
+                
+                $result = mysqli_query($con, $query);
                 
                 // Checks if the query is returning a result
                 if ($result) { echo "error in query"; }
