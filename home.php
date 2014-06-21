@@ -52,7 +52,7 @@
 
             // Set chart options
             var options = {
-                'title': "<?php echo $_SESSION['first_name']; ?>\'s Storage Chart",
+                'title': "<?php echo $_SESSION['first_name'] . "'s Stroage Chart"; ?>",
                 'width': 400,
                 'height': 300
             };
@@ -67,6 +67,8 @@
 
 <body>
     <!--Div that will hold the pie chart-->
+    <p> Welcome <?php echo $_SESSION['first_name']; ?>!</p>
+    
     <div id="chart_div"></div>
 </body>
 
