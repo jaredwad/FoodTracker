@@ -64,7 +64,7 @@
                         $_SESSION['email']       = $row['email'];
                         $_SESSION['last_login']  = $row['last_login'];
                         
-//                        header('Location: home.php');
+                        header('Location: home.php');
                     }
                 }
             }
