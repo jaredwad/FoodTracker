@@ -42,8 +42,6 @@
                 
                 $query = "SELECT * FROM user WHERE email ='" . $_POST['email'] . "'";
                 
-                echo $query;
-                
                 $result = mysqli_query($con, $query);
                 
                 // Checks if the query is returning a result
@@ -51,12 +49,17 @@
 
                 //  Loops through data set and checks for the user               
                 while($row = mysqli_fetch_array($result)) {
-                    echo $row['email'] . " : " . $_POST['email'];
-                    echo $row['pass']  . " : " . $_POST['pass'];
-                 
                     //redirect them to the home page if they are a registered user   
-                    if ($row['email'] == $_POST['email'] && $row['pass'] == $_POST['pass'])
+                    if ($row['email'] == $_POST['email'] && $row['pass'] == $_POST['pass']) {
+                        
+                        $_SESSION['first_name']  = $row['first_name'];
+                        $_SESSION['middle_name'] = $row['middle_name'];
+                        $_SESSION['last_name']   = $row['last_name'];
+                        $_SESSION['email']       = $row['email'];
+                        $_SESSION['last_login']  = $row['last_login'];
+                        
                         header('Location: home.php');
+                    }
                 }
             }
         }

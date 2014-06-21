@@ -9,7 +9,7 @@ CREATE TABLE user
 , first_name varchar(30) not null
 , middle_name varchar(30)
 , last_name varchar(30) not null
-, email varchar(30) not null
+, email varchar(30) not null unique
 , pass varchar(30) not null
 , token varchar(30)
 , last_login date
