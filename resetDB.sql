@@ -1,6 +1,6 @@
 use FoodTracker
 
-TEE resetDB.txt
+TEE /var/www/html/FoodTracker/resetDB.txt
 
 DROP TABLE IF EXISTS user;
 
