@@ -1,5 +1,7 @@
 use FoodTracker
 
+TEE resetDB.txt
+
 DROP TABLE IF EXISTS user;
 
 CREATE TABLE user
@@ -25,3 +27,5 @@ values
 , 'wad09007@byui.edu'
 , 'password'
 , 'aaaa');
+
+NOTEE 
