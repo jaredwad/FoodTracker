@@ -45,7 +45,7 @@
                 $result = mysqli_query($con, $query);
                 
                 // Checks if the query is returning a result
-                if ($result) { echo "error in query"; }
+                if (!$result) { echo "error in query"; }
 
                 //  Loops through data set and checks for the user               
                 while($row = mysqli_fetch_array($result)) {
