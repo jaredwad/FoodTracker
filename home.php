@@ -52,7 +52,7 @@
 
             // Set chart options
             var options = {
-                'title': "<?php echo $_SESSION['first_name'] ?>\'s Storage Chart",
+                'title': "<?php echo $_SESSION['first_name']; ?>\'s Storage Chart",
                 'width': 400,
                 'height': 300
             };
