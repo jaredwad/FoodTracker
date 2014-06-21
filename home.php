@@ -67,7 +67,7 @@
 
 <body>
     <!--Div that will hold the pie chart-->
-    <p> Welcom <?php echo $_SESSION['first_name']; ?>!</p>
+    <p> Welcome <?php echo $_SESSION['first_name']; ?>!</p>
     
     <div id="chart_div"></div>
 </body>

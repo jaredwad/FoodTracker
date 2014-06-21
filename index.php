@@ -52,6 +52,8 @@
                     //redirect them to the home page if they are a registered user   
                     if ($row['email'] == $_POST['email'] && $row['pass'] == $_POST['pass']) {
                         
+                        <?php session_start(); ?>
+                        
                         $_SESSION['first_name']  = $row['first_name'];
                         $_SESSION['middle_name'] = $row['middle_name'];
                         $_SESSION['last_name']   = $row['last_name'];
