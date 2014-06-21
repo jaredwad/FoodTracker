@@ -64,7 +64,7 @@
                         echo $_SESSION['email'] . '<br>';
                         echo $_SESSION['last_login'] . '<br>';
                         
-                        header('Location: home.php');
+//                        header('Location: home.php');
                     }
                 }
             }
