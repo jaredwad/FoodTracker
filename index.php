@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <html>
 
 <head>
@@ -51,8 +53,6 @@
                 while($row = mysqli_fetch_array($result)) {
                     //redirect them to the home page if they are a registered user   
                     if ($row['email'] == $_POST['email'] && $row['pass'] == $_POST['pass']) {
-                        
-                        session_start();
                         
                         $_SESSION['first_name']  = $row['first_name'];
                         $_SESSION['middle_name'] = $row['middle_name'];
