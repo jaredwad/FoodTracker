@@ -40,7 +40,7 @@
             
             else { 
                 
-                $query = "SELECT * FROM user WHERE email =\'" + $_POST['email'] + "\';";
+                $query = "SELECT * FROM user WHERE email ='" . $_POST['email'] . "'";
                 
                 echo $query;
                 
@@ -51,8 +51,8 @@
 
                 //  Loops through data set and checks for the user               
                 while($row = mysqli_fetch_array($result)) {
-                    echo $row['email'] + " : " + $_POST['email'];
-                    echo $row['pass']  + " : " + $_POST['pass'];
+                    echo $row['email'] . " : " . $_POST['email'];
+                    echo $row['pass']  . " : " . $_POST['pass'];
                  
                     //redirect them to the home page if they are a registered user   
                     if ($row['email'] == $_POST['email'] && $row['pass'] == $_POST['pass'])
