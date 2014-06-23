@@ -1,0 +1,7 @@
+.centeredPie{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -50px; /*half the image height*/
+        margin-left: -50px; /*half the image width*/
+    }

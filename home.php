@@ -18,6 +18,9 @@ session_start();
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="home.css">
 
     <!-- Optional theme -->
     <link rel="stylesheet" href="css/bootstrap-theme.min.css">
@@ -70,10 +73,14 @@ session_start();
 </head>
 
 <body>
-    <!--Div that will hold the pie chart-->
+    <div class="container">
+    
+    
     <p> Welcome <?php echo $_SESSION['first_name']; ?>!</p>
     
-    <div id="chart_div"></div>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div" class="centeredPie"></div>
+    </div>
 </body>
 
 </html>
