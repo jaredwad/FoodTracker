@@ -1,6 +1,4 @@
-<?php 
-session_start();
-?>
+<?php session_start(); ?>
 <html>
 
 <head>
@@ -18,7 +16,7 @@ session_start();
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="home.css">
 
@@ -58,7 +56,7 @@ session_start();
 
             // Set chart options
             var options = {
-//                'title': "<?//php echo $_SESSION['first_name'] . "'s Stroage Chart"; ?>",
+                //                'title': "<?//php echo $_SESSION['first_name'] . "'s Stroage Chart"; ?>",
                 'width': 1000,
                 'height': 800,
                 'is3D': true,
@@ -75,9 +73,33 @@ session_start();
 
 <body>
     <div class="container">
-    
-    <!--Div that will hold the pie chart-->
-    <div id="chart_div" class="centeredPie"></div>
+
+        <!--Div that will hold the pie chart-->
+        <div id="chart_div" class="centeredPie"></div>
+
+        <!-- Button trigger modal -->
+        <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+            Launch demo modal
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                    </div>
+                    <div class="modal-body">
+                        ...
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 
