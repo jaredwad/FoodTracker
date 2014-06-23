@@ -57,7 +57,8 @@ session_start();
             var options = {
                 'title': "<?php echo $_SESSION['first_name'] . "'s Stroage Chart"; ?>",
                 'width': 400,
-                'height': 300
+                'height': 300,
+                'is3D': true
             };
 
             // Instantiate and draw our chart, passing in some options.
