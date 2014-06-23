@@ -58,9 +58,9 @@ session_start();
 
             // Set chart options
             var options = {
-                'title': "<?php echo $_SESSION['first_name'] . "'s Stroage Chart"; ?>",
-                'width': 400,
-                'height': 300,
+//                'title': "<?//php echo $_SESSION['first_name'] . "'s Stroage Chart"; ?>",
+                'width': 800,
+                'height': 600,
                 'is3D': true
             };
 
