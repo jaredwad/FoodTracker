@@ -8,9 +8,6 @@
     /*half the image width*/
     z-index: -1;
 }
-.modal fade {
-    z-index: 1;
-}
 .btn btn-primary btn-lg {
     z-index: 1;
 }
