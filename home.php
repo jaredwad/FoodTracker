@@ -75,8 +75,8 @@
     <div class="container">
 
         <!--Div that will hold the pie chart-->
-        <div id="chart_div" class="centeredPie"></div>
-
+        <!--        <div id="chart_div" class="centeredPie"></div>
+-->
         <!-- Button trigger modal -->
         <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
             Launch demo modal
