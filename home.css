@@ -1,7 +1,13 @@
-.centeredPie{
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        margin-top: -400px; /*half the image height*/
-        margin-left: -400px; /*half the image width*/
-    }
+.centeredPie {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -400px;
+    /*half the image height*/
+    margin-left: -400px;
+    /*half the image width*/
+    z-index: 0;
+}
+.modal fade {
+    z-index: 1;
+}
