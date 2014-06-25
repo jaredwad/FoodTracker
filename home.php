@@ -26,6 +26,10 @@
     <!-- Latest compiled and minified JavaScript -->
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
 
+    <!-- Minified JQuery -->
+    <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+
     <!--Load the AJAX API-->
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <script type="text/javascript">
@@ -87,21 +91,9 @@
     <a class="btn" data-toggle="modal" href="#myModal">Launch Modal</a>
 
 
-    <div class="modal hide" id="myModal">
-        <!-- note the use of "hide" class -->
-        <div class="modal-header">
-            <button class="close" data-dismiss="modal">×</button>
-            <h3>Modal header</h3>
-        </div>
-        <div class="modal-body">
-            <p>One fine body…</p>
-        </div>
-        <div class="modal-footer">
-            <a href="#" class="btn" data-dismiss="modal">Close</a>
-            <!-- note the use of "data-dismiss" -->
-            <a href="#" class="btn btn-primary">Save changes</a>
-        </div>
-    </div>​
+    <div class="modal fade" id="myModal">
+        <p>some content</p>
+    </div>
     <div class="container">
 
         <!--Div that will hold the pie chart-->
