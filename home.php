@@ -123,14 +123,6 @@
 
     <div id="piechart_3d" class="centeredPie"></div>
 
-    <!-- popover -->
-    <div id="popover" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."></div>
-
-
-    <!--
-<div id="example" style="text-align:center;" href="#" data-content="This is the content for the popover.">Your Popover Text Here.</div>
--->
-
 </body>
 
 </html>
