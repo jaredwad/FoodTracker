@@ -26,5 +26,5 @@ In this case it stops with its left edge
 in the center*/
 
 .modal.fade.in {
-    left: 50%;
+    right: 50%;
 }
