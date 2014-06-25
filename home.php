@@ -73,7 +73,7 @@
         $(document).ready(function () {
             $('#example').popover({
                 trigger: "hover",
-                placement: "top",
+                placement: "right",
                 title: "This is a default title",
             });
         });
