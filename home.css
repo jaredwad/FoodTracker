@@ -15,12 +15,16 @@
     z-index: 1;
 }
 .modal.fade {
-    left: -25%;
+    left: 25%;
     -webkit-transition: opacity 0.3s linear, left 0.3s ease-out;
     -moz-transition: opacity 0.3s linear, left 0.3s ease-out;
     -o-transition: opacity 0.3s linear, left 0.3s ease-out;
     transition: opacity 0.3s linear, left 0.3s ease-out;
 }
+/* This affects where the modal ends up.
+In this case it stops with its left edge
+in the center*/
+
 .modal.fade.in {
-    left: 100%;
+    left: 50%;
 }
