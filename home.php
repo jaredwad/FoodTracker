@@ -57,6 +57,7 @@
             // Set chart options
             var options = {
                 'title': 'How Much Pizza I Ate Last Night',
+                'is3D': true,
                 'width': 400,
                 'height': 300
             };

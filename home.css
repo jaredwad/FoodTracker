@@ -8,23 +8,3 @@
     /*half the image width*/
     z-index: -1;
 }
-.modal fade {
-    z-index: 1;
-}
-.btn btn-primary btn-lg {
-    z-index: 1;
-}
-.modal.fade {
-    right: 25%;
-    -webkit-transition: opacity 0.3s linear, right 0.3s ease-out;
-    -moz-transition: opacity 0.3s linear, right 0.3s ease-out;
-    -o-transition: opacity 0.3s linear, right 0.3s ease-out;
-    transition: opacity 0.3s linear, right 0.3s ease-out;
-}
-/* This affects where the modal ends up.
-In this case it stops with its left edge
-in the center*/
-
-.modal.fade.in {
-    right: -50%;
-}
