@@ -47,7 +47,7 @@
 
             var options = {
                 title: 'My Daily Activities',
-                is3D: true,
+                //is3D: true,
                 colors: ['red', 'red', 'red', 'red'],
                 pieSliceBorderColor: 'black',
             };
