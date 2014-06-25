@@ -38,7 +38,7 @@
 
         function drawChart() {
 
-            alert("made it to drawChart");
+
 
             var dataTable = new google.visualization.DataTable();
             dataTable.addColumn('string', 'FoodType');
@@ -83,6 +83,8 @@
                     isHtml: true
                 }
             };
+
+            alert("made it to drawChart");
 
             var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
 
