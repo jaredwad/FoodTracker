@@ -84,7 +84,7 @@
                 }
             };
 
-            alert("made it to drawChart");
+
 
             var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
 
@@ -100,6 +100,8 @@
             // Listen for the 'select' event, and call my function selectHandler() when
             // the user selects something on the chart.
             google.visualization.events.addListener(chart, 'select', selectHandler);
+
+            alert("made it to drawChart");
 
             chart.draw(dataTable, options);
         }
