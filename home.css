@@ -3,7 +3,7 @@ It destroys the interactible nature of the pie chart */
 
 .centeredPie {
     position: fixed;
-    top: 50%;
+    top: 75%;
     left: 50%;
     margin-top: -400px;
     /*half the image height*/
