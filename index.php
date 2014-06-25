@@ -26,6 +26,7 @@
                     //redirect them to the home page if they are a registered user   
                     if ($row['email'] == $_POST['email'] && $row['pass'] == $_POST['pass']) {
                         
+                        $_SESSION['user_id']     = $row['user_id'];
                         $_SESSION['first_name']  = $row['first_name'];
                         $_SESSION['middle_name'] = $row['middle_name'];
                         $_SESSION['last_name']   = $row['last_name'];
@@ -45,6 +46,23 @@
 <html>
 
 <head>
+    
+    <!-- Technologies used so far in this project:
+    PHP
+    HTML5
+    CSS
+    Bootstrap
+    Google jsAPI
+    JavaScript
+    JQuery
+    MySQL
+    PHPMyAdmin
+    MAMP
+    Amazon AWS server
+    Adobe Brackets
+    GitHub
+    Bash scripting
+    -->
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">

@@ -1,4 +1,4 @@
-<?php session_start(); if (!isset($_SESSION[ 'first_name'])) { header( 'Location: index.php'); } ?>
+<?php session_start(); if (!isset($_SESSION[ 'user_id']) && !empty($_POST["user_id"])) { header( 'Location: index.php'); } ?>
 
 
 <html>
@@ -37,6 +37,21 @@
         google.setOnLoadCallback(drawChart);
 
         function drawChart() {
+            
+            /*****  Get all the variables needed for this chart *****/
+            
+            /*** Size (lbs) ***/
+            var wheatSize = getWheatSize();
+            var fruitSize = getFruitSize();
+            var vegtablesSize = getVegtablesSize();
+            var otherSize = getOtherSize();
+            
+            /*** Colors ***/
+            var wheatColor = getWheatColor(wheatSize);
+            var fruitColor = getFruitColor(fruitSize);
+            var vegtablesColor = getVegtablesColor(vegtablesSize);
+            var otherColor = getOtherColor(otherSize);
+            
             //Global variable!!! Good thing Brother Helfrich won't be looking at my code
             data = google.visualization.arrayToDataTable([
       ['Food', 'Percentage of total storage (lbs)'],
@@ -50,10 +65,6 @@
             chart = new google.visualization.PieChart(
                 document.getElementById('piechart'));
 
-            var wheatColor = getWheatColor();
-            var fruitColor = getFruitColor();
-            var vegtablesColor = getVegtablesColor();
-            var otherColor = getOtherColor();
             
             //All of the desired options for the pie chart
             var options = {
