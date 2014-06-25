@@ -19,12 +19,15 @@
     $query = "SELECT * FROM cooking_essentials WHERE user_id ='" . $_SESSION['user_id'] . "'";
                 
     $cookingSet = mysqli_query($con, $query);
+    $cookingTotalSize;
+    $cookingNeededSize;
 
     // Checks if the query is returning a result
     if (!$cookingSet) { echo "error in cooking_essentials query"; }
 
     while($row = mysqli_fetch_array($cookingSet)) {
-        echo $row['type'] . "<br>";
+        $cookingTotalSize  += $row['amount'];
+        $cookingNeededSize += $row['amount_needed '];
     }
 
 //
@@ -34,9 +37,16 @@
     $query = "SELECT * FROM fats_and_oils WHERE user_id ='" . $_SESSION['user_id'] . "'";
                 
     $fatsSet = mysqli_query($con, $query);
+    $fatsTotalSize;
+    $fatsNeededSize;
 
     // Checks if the query is returning a result
     if (!$fatsSet) { echo "error in fats_and_oils query"; }
+
+    while($row = mysqli_fetch_array($cookingSet)) {
+        $fatsTotalSize  += $row['amount'];
+        $fatsNeededSize += $row['amount_needed '];
+    }
 
 //
 // ====================== grains Query ======================
@@ -45,9 +55,16 @@
     $query = "SELECT * FROM grains WHERE user_id ='" . $_SESSION['user_id'] . "'";
                 
     $grainsSet = mysqli_query($con, $query);
+    $grainsTotalSize;
+    $grainsNeededSize;
 
     // Checks if the query is returning a result
     if (!$grainsSet) { echo "error in grains query"; }
+
+    while($row = mysqli_fetch_array($cookingSet)) {
+        $grainsTotalSize  += $row['amount'];
+        $grainsNeededSize += $row['amount_needed '];
+    }
 
 //
 // ====================== legumes Query ======================
@@ -56,9 +73,16 @@
     $query = "SELECT * FROM legumes WHERE user_id ='" . $_SESSION['user_id'] . "'";
                 
     $legumesSet = mysqli_query($con, $query);
+    $legumesTotalSize;
+    $legumesNeededSize;
 
     // Checks if the query is returning a result
     if (!$legumesSet) { echo "error in legumes query"; }
+
+    while($row = mysqli_fetch_array($cookingSet)) {
+        $legumesTotalSize  += $row['amount'];
+        $legumesNeededSize += $row['amount_needed '];
+    }
 
 //
 // ====================== milk Query ======================
@@ -67,9 +91,16 @@
     $query = "SELECT * FROM milk WHERE user_id ='" . $_SESSION['user_id'] . "'";
                 
     $milkSet = mysqli_query($con, $query);
+    $milkTotalSize;
+    $milkNeededSize;
 
     // Checks if the query is returning a result
     if (!$milkSet) { echo "error in milk query"; }
+
+    while($row = mysqli_fetch_array($cookingSet)) {
+        $milkTotalSize  += $row['amount'];
+        $milkNeededSize += $row['amount_needed '];
+    }
 
 //
 // ====================== sugars Query ======================
@@ -78,9 +109,16 @@
     $query = "SELECT * FROM sugars WHERE user_id ='" . $_SESSION['user_id'] . "'";
                 
     $sugarsSet = mysqli_query($con, $query);
+    $sugarsTotalSize;
+    $sugarsNeededSize;
 
     // Checks if the query is returning a result
     if (!$sugarsSet) { echo "error in sugars query"; }
+
+    while($row = mysqli_fetch_array($cookingSet)) {
+        $sugarsTotalSize  += $row['amount'];
+        $sugarsNeededSize += $row['amount_needed '];
+    }
 
 //
 // ====================== water Query ======================
@@ -89,9 +127,16 @@
     $query = "SELECT * FROM water WHERE user_id ='" . $_SESSION['user_id'] . "'";
                 
     $waterSet = mysqli_query($con, $query);
+    $waterTotalSize;
+    $waterNeededSize;
 
     // Checks if the query is returning a result
     if (!$waterSet) { echo "error in water query"; }
+
+    while($row = mysqli_fetch_array($cookingSet)) {
+        $fatsTotalSize  += $row['amount'];
+        $fatsNeededSize += $row['amount_needed '];
+    }
 ?>
 
 
