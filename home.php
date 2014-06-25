@@ -72,7 +72,6 @@
 <body>
 
     <!--Div that will hold the pie chart-->
-    <div id="chart_div" class="centeredPie"></div>
 
     <div id="piechart_3d" class="centeredPie"></div>
 
