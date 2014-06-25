@@ -98,7 +98,6 @@
 <div id="example" style="text-align:center;" href="#" data-content="This is the content for the popover.">Your Popover Text Here.</div>
 -->
 
-    </div>
 </body>
 
 </html>
