@@ -69,26 +69,23 @@
         }
     </script>
 
+    <script>
+        $(document).ready(function () {
+            $('#example').popover({
+                trigger: "hover",
+                placement: "top",
+                title: "This is a default title",
+            });
+        });
+    </script>
 
 </head>
 
 <body>
-    <button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="left" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
-        Popover on left
-    </button>
 
-    <button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="top" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
-        Popover on top
-    </button>
-
-    <button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Vivamus
-sagittis lacus vel augue laoreet rutrum faucibus.">
-        Popover on bottom
-    </button>
-
-    <button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
-        Popover on right
-    </button>
+    <div id="example" data-content="This is the content for the popover.">
+        popover text
+    </div>
 
     <!-- Button trigger modal -->
     <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
