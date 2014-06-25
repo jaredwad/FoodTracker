@@ -55,6 +55,19 @@
             };
 
             var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+
+            // The select handler. Call the chart's getSelection() method
+            function selectHandler() {
+                var selectedItem = chart.getSelection()[0];
+                if (selectedItem) {
+                    var topping = data.getValue(selectedItem.row, 0);
+                    alert('The user selected ' + topping);
+                }
+            }
+
+            // Listen for the 'select' event, and call my function selectHandler() when
+            // the user selects something on the chart.
+            google.visualization.events.addListener(chart, 'select', selectHandler);
             chart.draw(data, options);
         }
     </script>
