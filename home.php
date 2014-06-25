@@ -83,9 +83,8 @@
 
 <body>
 
-    <div id="example" data-content="This is the content for the popover.">
-        popover text
-    </div>
+    <a id="example" href="#" data-content="This is the content for the popover.">Your Popover Text Here.</a>
+
 
     <!-- Button trigger modal -->
     <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
