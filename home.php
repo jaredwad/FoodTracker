@@ -68,7 +68,33 @@
             function mouseOverHandler(item) {
                 if (item) {
                     var topping = data.getValue(item.row, 0);
-                    $('#myModal').modal('show');
+
+                    var options = {
+                        placement: function (context, source) {
+                            var position = $(source).position();
+
+                            if (position.left > 515) {
+                                return "left";
+                            }
+
+                            if (position.left < 515) {
+                                return "right";
+                            }
+
+                            if (position.top < 110) {
+                                return "bottom";
+                            }
+
+                            return "top";
+                        },
+                        title: function () {
+                            return topping;
+                        }
+                    };
+                    $("#popover").popover(options);
+
+
+                    $('#popover').modal('show');
                     //                    alert('The user hovered over ' + topping);
                 }
             }
@@ -100,27 +126,9 @@
 
     <div id="piechart_3d" class="centeredPie"></div>
 
-    <!-- modal!! -->
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title">Modal title</h4>
-                </div>
-                <div class="modal-body">
-                    <p>One fine body&hellip;</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
-            </div>
-            <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
-    </div>
-    <!-- /.modal -->
+    <!-- popover -->
+    <div id="popover" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."></div>
+
 
     <!--
 <div id="example" style="text-align:center;" href="#" data-content="This is the content for the popover.">Your Popover Text Here.</div>
