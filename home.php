@@ -47,12 +47,29 @@
 
             var options = {
                 title: 'My Daily Activities',
+                legend: 'none',
+                pieSliceText: 'label',
                 //is3D: true,
                 colors: ['red', 'red', 'red', 'red'],
                 pieSliceBorderColor: 'black',
             };
 
             var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+
+            // The select handler. Call the chart's getSelection() method
+            function selectHandler() {
+                var selectedItem = chart.getSelection()[0];
+                if (selectedItem) {
+                    var value = data.getValue(selectedItem.row, selectedItem.column);
+                    alert('The user selected ' + value);
+                }
+            }
+
+            // Listen for the 'select' event, and call my function selectHandler() when
+            // the user selects something on the chart.
+            google.visualization.events.addListener(chart, 'select', selectHandler);
+
+
             chart.draw(data, options);
         }
     </script>
