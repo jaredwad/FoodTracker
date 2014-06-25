@@ -3,9 +3,95 @@
         header( 'Location: index.php');
     } 
 
-    $query = "SELECT * FROM user WHERE email ='" . $_SESSION['user_id'] . "'";
+
+    // Establish database connection
+    $con = mysqli_connect("localhost", "FTselect", "select", "FoodTracker");
+            
+    // Check connection
+    if (mysqli_connect_errno()) {
+        echo "Failed to connect to MySQL: " . mysqli_connect_error();
+    }
+
+//
+// ====================== cooking_essentials Query ======================
+//
+
+    $query = "SELECT * FROM cooking_essentials WHERE user_id ='" . $_SESSION['user_id'] . "'";
                 
-    $result = mysqli_query($con, $query);
+    $cookingSet = mysqli_query($con, $query);
+
+    // Checks if the query is returning a result
+    if (!$cookingSet) { echo "error in cooking_essentials query"; }
+
+    while($row = mysqli_fetch_array($cookingSet)) {
+        echo $row['type'] . "<br>";
+    }
+
+//
+// ====================== fats_and_oils Query ======================
+//
+
+    $query = "SELECT * FROM fats_and_oils WHERE user_id ='" . $_SESSION['user_id'] . "'";
+                
+    $fatsSet = mysqli_query($con, $query);
+
+    // Checks if the query is returning a result
+    if (!$fatsSet) { echo "error in fats_and_oils query"; }
+
+//
+// ====================== grains Query ======================
+//
+
+    $query = "SELECT * FROM grains WHERE user_id ='" . $_SESSION['user_id'] . "'";
+                
+    $grainsSet = mysqli_query($con, $query);
+
+    // Checks if the query is returning a result
+    if (!$grainsSet) { echo "error in grains query"; }
+
+//
+// ====================== legumes Query ======================
+//
+
+    $query = "SELECT * FROM legumes WHERE user_id ='" . $_SESSION['user_id'] . "'";
+                
+    $legumesSet = mysqli_query($con, $query);
+
+    // Checks if the query is returning a result
+    if (!$legumesSet) { echo "error in legumes query"; }
+
+//
+// ====================== milk Query ======================
+//
+
+    $query = "SELECT * FROM milk WHERE user_id ='" . $_SESSION['user_id'] . "'";
+                
+    $milkSet = mysqli_query($con, $query);
+
+    // Checks if the query is returning a result
+    if (!$milkSet) { echo "error in milk query"; }
+
+//
+// ====================== sugars Query ======================
+//
+
+    $query = "SELECT * FROM sugars WHERE user_id ='" . $_SESSION['user_id'] . "'";
+                
+    $sugarsSet = mysqli_query($con, $query);
+
+    // Checks if the query is returning a result
+    if (!$sugarsSet) { echo "error in sugars query"; }
+
+//
+// ====================== water Query ======================
+//
+
+    $query = "SELECT * FROM water WHERE user_id ='" . $_SESSION['user_id'] . "'";
+                
+    $waterSet = mysqli_query($con, $query);
+
+    // Checks if the query is returning a result
+    if (!$waterSet) { echo "error in water query"; }
 ?>
 
 
