@@ -1,12 +1,10 @@
 .centeredPie {
-    position: fixed;
     top: 50%;
     left: 50%;
     margin-top: -400px;
     /*half the image height*/
     margin-left: -400px;
     /*half the image width*/
-    z-index: -1;
     width: 900px;
     height: 500px;
 }
