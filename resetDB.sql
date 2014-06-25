@@ -2,7 +2,7 @@ use FoodTracker
 
 TEE /var/www/html/FoodTracker/resetDB.txt
 
-DROP TABLE IF EXISTS user;
+DROP TABLE IF EXISTS 'user';
 
 CREATE TABLE user
 ( user_id int not null AUTO_INCREMENT

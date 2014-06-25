@@ -31,13 +31,7 @@
                         $_SESSION['last_name']   = $row['last_name'];
                         $_SESSION['email']       = $row['email'];
                         $_SESSION['last_login']  = $row['last_login'];
-                        
-                        echo $_SESSION['first_name'] . '<br>';
-                        echo $_SESSION['middle_name'] . '<br>';
-                        echo $_SESSION['last_name'] . '<br>';
-                        echo $_SESSION['email'] . '<br>';
-                        echo $_SESSION['last_login'] . '<br>';
-                        
+  
                         header('Location: home.php');
                     }
                 }
