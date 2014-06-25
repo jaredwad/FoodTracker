@@ -77,6 +77,7 @@
         $(document).ready(function () {
             $("#modalButton").click(function () {
                 $("#myModal").modal("toggle");
+                throw new Error("my error message");
             });
         });
     </script>
