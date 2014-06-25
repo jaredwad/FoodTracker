@@ -69,10 +69,18 @@
         }
     </script>
 
+    <script>
+        $(document).ready(function () {
+            $("#modalButton").click(function () {
+                $("#myModal").modal("toggle");
+            });
+        });
+    </script>
+
 </head>
 
 <body>
-    <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+    <button class="btn btn-primary btn-lg" id="modalButton">
         Launch demo modal
     </button>
 
