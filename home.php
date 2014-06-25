@@ -37,7 +37,8 @@
         google.setOnLoadCallback(drawChart);
 
         function drawChart() {
-            var data = google.visualization.arrayToDataTable([
+            //Global variable!!! Good thing Brother Helfrich won't be looking at my code
+            data = google.visualization.arrayToDataTable([
       ['Food', 'Percentage of total storage (lbs)'],
       ['Wheat', 217],
       ['Fruit', 203],
@@ -48,10 +49,10 @@
             var chart = new google.visualization.PieChart(
                 document.getElementById('piechart'));
 
+            //All of the desired options for the pie chart
             var options = {
                 legend: 'none',
                 pieSliceText: 'label',
-                //is3D: true,
                 colors: ['red', 'red', 'red', 'red'],
                 pieSliceBorderColor: 'black',
                 tooltip: {
@@ -59,16 +60,28 @@
                 }
             };
 
+            //This allows the creation of custom HTML tooltips which are created in
+            //the function HTMLContent(FoodType)
             google.visualization.events.addListener(chart, 'onmouseover', function (e) {
                 //check row with e.row;                                
-                $(".google-visualization-tooltip").html("your html here");
+                $(".google-visualization-tooltip").html(HTMLContent(e));
             });
+            
+            //This prevents the pie chart from reverting to default tooltip content
+            //when clicked
+            google.visualization.events.addListener(chart, 'select', function (e) { 
+                //check row with e.row;                                
+                $(".google-visualization-tooltip").html(HTMLContent(e));
+            }
+            );
 
             chart.draw(data, options);
         }
 
-        function HTMLContent(FoodType) {
-            return '<div style="padding:5px 5px 5px 5px;">' + FoodType + '</div>';
+        function HTMLContent(e) {
+            var FoodType = data.getFormattedValue(e.row, 0);
+            
+            return '<div style="padding:5px 5px 5px 5px;"> html content! ' + FoodType + '</div>';
         }
     </script>
 
