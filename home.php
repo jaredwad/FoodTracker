@@ -38,23 +38,23 @@
 
         function drawChart() {
 
-            var data = new google.visualization.DataTable();
-            data.addColumn('string', 'FoodType');
+            var dataTable = new google.visualization.DataTable();
+            dataTable.addColumn('string', 'FoodType');
             // Use custom HTML content for the domain tooltip.
-            data.addColumn({
+            dataTable.addColumn({
                 'type': 'string',
                 'role': 'tooltip',
                 'p': {
                     'html': true
                 }
             });
-            data.addColumn('number', 'Size');
+            dataTable.addColumn('number', 'Size');
 
 
 
 
             // FoodType : HTML content(FoodType) : Size
-            data.addRows([
+            dataTable.addRows([
     ['Wheat', HTMLContent('Wheat'), 29],
     ['Fruit', HTMLContent('Fruit'), 23],
     ['Vegtables', HTMLContent('Vegtables'), 19]
@@ -98,7 +98,7 @@
             google.visualization.events.addListener(chart, 'select', selectHandler);
             google.visualization.events.addListener(chart, 'onmouseover', mouseOverHandler);
 
-            chart.draw(data, options);
+            chart.draw(dataTable, options);
         }
 
         function HTMLContent(FoodType) {
