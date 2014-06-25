@@ -83,12 +83,10 @@
 
 <body>
 
-    <div id="example" href="#" data-content="This is the content for the popover.">Your Popover Text Here.</div>
-
     <!--Div that will hold the pie chart-->
     <div id="chart_div" class="centeredPie"></div>
 
-    <!-- Button trigger modal -->
+    <div id="example" style="text-align:center;" href="#" data-content="This is the content for the popover.">Your Popover Text Here.</div>
 
     </div>
 </body>
