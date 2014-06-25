@@ -37,74 +37,34 @@
         google.setOnLoadCallback(drawChart);
 
         function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+      ['Food', 'Percentage of total storage (lbs)'],
+      ['Wheat', 217],
+      ['Fruit', 203],
+      ['Vegtables', 175],
+      ['Other', 155]
+    ]);
 
-
-
-            var dataTable = new google.visualization.DataTable();
-            dataTable.addColumn('string', 'FoodType');
-            // Use custom HTML content for the domain tooltip.
-            dataTable.addColumn({
-                'type': 'string',
-                'role': 'tooltip',
-                'p': {
-                    'html': true
-                }
-            });
-            dataTable.addColumn('number', 'Size');
-
-
-
-
-            // FoodType : HTML content(FoodType) : Size
-            dataTable.addRows([
-    ['Wheat', HTMLContent('Wheat'), 29],
-    ['Fruit', HTMLContent('Fruit'), 23],
-    ['Vegtables', HTMLContent('Vegtables'), 19],
-    ['Other', HTMLContent('Other'), 19]
-  ]);
-
-            /*var data = google.visualization.arrayToDataTable([
-          ['Food Type', 'Percent of total storage'],
-          ['Wheat', 11],
-          ['Fruit', 2],
-          ['Vegtables', 2],
-          ['Other', 2]
-        ]);*/
+            var chart = new google.visualization.PieChart(
+                document.getElementById('piechart'));
 
             var options = {
-                //                title: 'My Daily Activities',
                 legend: 'none',
                 pieSliceText: 'label',
                 //is3D: true,
                 colors: ['red', 'red', 'red', 'red'],
                 pieSliceBorderColor: 'black',
-                // Use an HTML tooltip.
                 tooltip: {
                     isHtml: true
                 }
             };
 
+            google.visualization.events.addListener(chart, 'onmouseover', function (e) {
+                //check row with e.row;                                
+                $(".google-visualization-tooltip").html("your html here");
+            });
 
-
-            var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
-
-            // The select handler. Call the chart's getSelection() method
-            function selectHandler() {
-                var selectedItem = chart.getSelection()[0];
-                if (selectedItem) {
-                    var topping = dataTable.getValue(selectedItem.row, 0);
-                    alert('The user selected ' + topping);
-                }
-            }
-
-            // Listen for the 'select' event, and call my function selectHandler() when
-            // the user selects something on the chart.
-            google.visualization.events.addListener(chart, 'select', selectHandler);
-
-
-
-            chart.draw(dataTable, options);
-            alert("made it to drawChart" + dataTable);
+            chart.draw(data, options);
         }
 
         function HTMLContent(FoodType) {
@@ -128,7 +88,7 @@
 
     <!--Div that will hold the pie chart-->
 
-    <div id="piechart_3d" class="centeredPie"></div>
+    <div id="piechart" class="centeredPie"></div>
 
 </body>
 
