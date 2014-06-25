@@ -73,7 +73,7 @@
         $(document).ready(function () {
             $('#example').popover({
                 trigger: "hover",
-                placement: "right",
+                placement: "bottom",
                 title: "This is a default title",
             });
         });
@@ -83,7 +83,7 @@
 
 <body>
 
-    <a id="example" href="#" data-content="This is the content for the popover.">Your Popover Text Here.</a>
+    <div id="example" href="#" data-content="This is the content for the popover.">Your Popover Text Here.</div>
 
 
     <!-- Button trigger modal -->
