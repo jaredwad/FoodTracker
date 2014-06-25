@@ -57,7 +57,7 @@
             dataTable.addRows([
     ['Wheat', HTMLContent('Wheat'), 29],
     ['Fruit', HTMLContent('Fruit'), 23],
-    ['Vegtables', HTMLContent('Vegtables'), 19]
+    ['Vegtables', HTMLContent('Vegtables'), 19],
     ['Other', HTMLContent('Other'), 19]
   ]);
 
