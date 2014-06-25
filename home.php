@@ -88,7 +88,7 @@
             function selectHandler() {
                 var selectedItem = chart.getSelection()[0];
                 if (selectedItem) {
-                    var topping = data.getValue(selectedItem.row, 0);
+                    var topping = dataTable.getValue(selectedItem.row, 0);
                     alert('The user selected ' + topping);
                 }
             }
