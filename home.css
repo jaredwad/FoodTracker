@@ -1,5 +1,5 @@
 .centeredPie {
-    position: fixed;
+    position: absolute;
     top: 50%;
     left: 50%;
     margin-top: -400px;
