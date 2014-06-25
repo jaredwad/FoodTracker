@@ -37,21 +37,49 @@
         google.setOnLoadCallback(drawChart);
 
         function drawChart() {
-            var data = google.visualization.arrayToDataTable([
+
+            var data = new google.visualization.DataTable();
+            dataTable.addColumn('string', 'FoodType');
+            // Use custom HTML content for the domain tooltip.
+            dataTable.addColumn({
+                'type': 'string',
+                'role': 'tooltip',
+                'p': {
+                    'html': true
+                }
+            });
+            dataTable.addColumn('number', 'Size');
+
+
+
+
+            // FoodType : HTML content(FoodType) : Size
+            dataTable.addRows([
+    ['Wheat', HTMLContent('Wheat'), 29],
+    ['Fruit', HTMLContent('Fruit'), 23],
+    ['Vegtables', HTMLContent('Vegtables'), 19]
+    ['Other', HTMLContent('Other'), 19]
+  ]);
+
+            /*var data = google.visualization.arrayToDataTable([
           ['Food Type', 'Percent of total storage'],
           ['Wheat', 11],
           ['Fruit', 2],
           ['Vegtables', 2],
           ['Other', 2]
-        ]);
+        ]);*/
 
             var options = {
-                title: 'My Daily Activities',
+                //                title: 'My Daily Activities',
                 legend: 'none',
                 pieSliceText: 'label',
                 //is3D: true,
                 colors: ['red', 'red', 'red', 'red'],
                 pieSliceBorderColor: 'black',
+                // Use an HTML tooltip.
+                tooltip: {
+                    isHtml: true
+                }
             };
 
             var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
@@ -65,46 +93,16 @@
                 }
             }
 
-            function mouseOverHandler(item) {
-                if (item) {
-                    var topping = data.getValue(item.row, 0);
-
-                    var options = {
-                        placement: function (context, source) {
-                            var position = $(source).position();
-
-                            if (position.left > 515) {
-                                return "left";
-                            }
-
-                            if (position.left < 515) {
-                                return "right";
-                            }
-
-                            if (position.top < 110) {
-                                return "bottom";
-                            }
-
-                            return "top";
-                        },
-                        title: function () {
-                            return topping;
-                        }
-                    };
-                    $("#popover").popover(options);
-
-
-                    $('#popover').modal('show');
-                    //                    alert('The user hovered over ' + topping);
-                }
-            }
-
             // Listen for the 'select' event, and call my function selectHandler() when
             // the user selects something on the chart.
             google.visualization.events.addListener(chart, 'select', selectHandler);
             google.visualization.events.addListener(chart, 'onmouseover', mouseOverHandler);
 
             chart.draw(data, options);
+        }
+
+        function HTMLContent(FoodType) {
+            return '<div style="padding:5px 5px 5px 5px;">' + FoodType + '</div>';
         }
     </script>
 
