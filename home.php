@@ -40,21 +40,27 @@
             //Global variable!!! Good thing Brother Helfrich won't be looking at my code
             data = google.visualization.arrayToDataTable([
       ['Food', 'Percentage of total storage (lbs)'],
-      ['Wheat', 217],
-      ['Fruit', 203],
+      ['Wheat', 210],
+      ['Fruit', 200],
       ['Vegtables', 175],
-      ['Other', 155]
+      ['Other', 15]
     ]);
 
             var chart = new google.visualization.PieChart(
                 document.getElementById('piechart'));
 
+            var wheatColor = getWheatColor();
+            var fruitColor = getFruitColor();
+            var vegtablesColor = getVegtablesColor();
+            var otherColor = getOtherColor();
+            
             //All of the desired options for the pie chart
             var options = {
                 legend: 'none',
                 pieSliceText: 'label',
-                colors: ['red', 'red', 'red', 'red'],
+                colors: [wheatColor, fruitColor, vegtablesColor, otherColor],
                 pieSliceBorderColor: 'black',
+                sliceVisibilityThreshold: '1/100000',
                 tooltip: {
                     isHtml: true
                 }
@@ -86,6 +92,23 @@
     </script>
 
     <script>
+        
+        function getWheatColor() {
+            return 'red';   
+        }
+        
+        function getFruitColor() {
+            return 'red';   
+        }
+        
+        function getVegtablesColor() {
+            return 'red';   
+        }
+        
+        function getOtherColor() {
+            return 'red';   
+        }
+        
         $(document).ready(function () {
             $('#example').popover({
                 trigger: "hover",
