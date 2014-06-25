@@ -69,18 +69,14 @@
         }
     </script>
 
-    <script>
-        $(document).ready(function () {
-            $("#modalButton").click(function () {
-                $("#myModal").modal("toggle");
-                throw new Error("my error message");
-            });
-        });
-    </script>
 
 </head>
 
 <body>
+    <button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="left" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+        Popover on left
+    </button>
+
     <!-- Button trigger modal -->
     <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
         Launch demo modal
