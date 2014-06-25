@@ -101,9 +101,10 @@
             // the user selects something on the chart.
             google.visualization.events.addListener(chart, 'select', selectHandler);
 
-            alert("made it to drawChart");
+
 
             chart.draw(dataTable, options);
+            alert("made it to drawChart");
         }
 
         function HTMLContent(FoodType) {
