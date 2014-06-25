@@ -104,7 +104,7 @@
 
 
             chart.draw(dataTable, options);
-            alert("made it to drawChart");
+            alert("made it to drawChart" + dataTable);
         }
 
         function HTMLContent(FoodType) {
