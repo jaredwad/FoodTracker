@@ -20,6 +20,9 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="home.css">
 
+    <!-- Minified JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
     <!-- Latest compiled and minified JavaScript -->
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
 
@@ -73,16 +76,6 @@
             google.visualization.events.addListener(chart, 'select', selectHandler);
             chart.draw(data, options);
         }
-    </script>
-
-    <script>
-        $(document).ready(function () {
-            $('#example').popover({
-                trigger: "hover",
-                placement: "bottom",
-                title: "This is a default title",
-            });
-        });
     </script>
 
 </head>
