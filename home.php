@@ -49,6 +49,7 @@
                 title: 'My Daily Activities',
                 is3D: true,
                 colors: ['red', 'red', 'red', 'red'],
+                pieSliceBorderColor: 'black',
             };
 
             var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
