@@ -11,17 +11,14 @@
     <link rel="shortcut icon" href="images/wheat-icon.ico">
     <title>FoodTracker login</title>
 
-    <!-- Custom styles for this template -->
-    <link href="css/signin.css" rel="stylesheet">
-
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
 
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="home.css">
-
     <!-- Optional theme -->
     <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="home.css">
 
     <!-- Minified JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
