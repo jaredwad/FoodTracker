@@ -38,6 +38,8 @@
 
         function drawChart() {
 
+            alert("made it to drawChart");
+
             var dataTable = new google.visualization.DataTable();
             dataTable.addColumn('string', 'FoodType');
             // Use custom HTML content for the domain tooltip.
