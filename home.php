@@ -71,10 +71,12 @@
 
 <body>
 
-    <!--Div that will hold the pie chart-->
+    <div class="container">
+        <!--Div that will hold the pie chart-->
 
-    <div id="piechart_3d" class="centeredPie"></div>
+        <div id="piechart_3d" class="centeredPie"></div>
 
+    </div>
     <!--
 <div id="example" style="text-align:center;" href="#" data-content="This is the content for the popover.">Your Popover Text Here.</div>
 -->
