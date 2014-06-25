@@ -1,3 +1,6 @@
+/* !!! DO NOT CHANGE THE Z-INDEX !!!
+It destroys the interactible nature of the pie chart */
+
 .centeredPie {
     position: fixed;
     top: 50%;
