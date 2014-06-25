@@ -47,12 +47,12 @@
             data.addColumn('string', 'Name');
             data.addColumn('number', 'Amount');
             data.addRows([
-          ['Mushrooms', 3],
-          ['Onions', 1],
-          ['Olives', 1],
-          ['Zucchini', 1],
-          ['Pepperoni', 2]
-        ]);
+                         ['Wheat', 3],
+                         ['Fruit', 1],
+                         ['Vegtables', 1],
+                         ['Other', 1],
+                         ['Pepperoni', 2]
+                                        ]);
 
             // Set chart options
             var options = {
