@@ -39,22 +39,22 @@
         function drawChart() {
 
             var data = new google.visualization.DataTable();
-            dataTable.addColumn('string', 'FoodType');
+            data.addColumn('string', 'FoodType');
             // Use custom HTML content for the domain tooltip.
-            dataTable.addColumn({
+            data.addColumn({
                 'type': 'string',
                 'role': 'tooltip',
                 'p': {
                     'html': true
                 }
             });
-            dataTable.addColumn('number', 'Size');
+            data.addColumn('number', 'Size');
 
 
 
 
             // FoodType : HTML content(FoodType) : Size
-            dataTable.addRows([
+            data.addRows([
     ['Wheat', HTMLContent('Wheat'), 29],
     ['Fruit', HTMLContent('Fruit'), 23],
     ['Vegtables', HTMLContent('Vegtables'), 19]
