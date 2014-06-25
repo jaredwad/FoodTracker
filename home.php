@@ -36,12 +36,11 @@
 
         function drawChart() {
             var data = google.visualization.arrayToDataTable([
-          ['Task', 'Hours per Day'],
-          ['Work', 11],
-          ['Eat', 2],
-          ['Commute', 2],
-          ['Watch TV', 2],
-          ['Sleep', 7]
+          ['Food Type', 'Percent of total storage'],
+          ['Wheat', 11],
+          ['Fruit', 2],
+          ['Vegtables', 2],
+          ['Other', 2]
         ]);
 
             var options = {
