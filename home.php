@@ -29,54 +29,29 @@
     <!--Load the AJAX API-->
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <script type="text/javascript">
-        // Load the Visualization API and the piechart package.
-        google.load('visualization', '1.0', {
-            'packages': ['corechart']
+        google.load("visualization", "1", {
+            packages: ["corechart"]
         });
-
-         // Set a callback to run when the Google Visualization API is loaded.
         google.setOnLoadCallback(drawChart);
 
-         // Callback that creates and populates a data table,
-         // instantiates the pie chart, passes in the data and
-         // draws it.
         function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+          ['Work', 11],
+          ['Eat', 2],
+          ['Commute', 2],
+          ['Watch TV', 2],
+          ['Sleep', 7]
+        ]);
 
-            // Create the data table.
-            var data = new google.visualization.DataTable();
-            data.addColumn('string', 'Name');
-            data.addColumn('number', 'Amount');
-            data.addRows([
-                         ['Wheat', 3],
-                         ['Fruit', 1],
-                         ['Vegtables', 1],
-                         ['Other', 1],
-                         ['Pepperoni', 2]
-                                        ]);
-
-            // Set chart options
             var options = {
-                //                'title': "<?//php echo $_SESSION['first_name'] . "'s Stroage Chart"; ?>",
-                'width': 1000,
-                'height': 800,
-                'is3D': true,
-                'colors': ['#e0440e', '#e6693e', '#ec8f6e', '#f3b49f', '#f6c7b6']
+                title: 'My Daily Activities',
+                is3D: true,
             };
 
-            // Instantiate and draw our chart, passing in some options.
-            var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+            var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
             chart.draw(data, options);
         }
-    </script>
-
-    <script>
-        $(document).ready(function () {
-            $('#example').popover({
-                trigger: "hover",
-                placement: "bottom",
-                title: "This is a default title",
-            });
-        });
     </script>
 
 </head>
