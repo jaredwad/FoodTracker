@@ -23,12 +23,11 @@
     <!-- Optional theme -->
     <link rel="stylesheet" href="css/bootstrap-theme.min.css">
 
-    <!-- Latest compiled and minified JavaScript -->
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
-
     <!-- Minified JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 
+    <!-- Latest compiled and minified JavaScript -->
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
 
     <!--Load the AJAX API-->
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
