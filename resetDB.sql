@@ -167,6 +167,12 @@ CREATE TABLE `water` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
+-- Add base data to database
+--
+
+\. insertData.sql
+
+--
 -- Constraints for dumped tables
 --
 
