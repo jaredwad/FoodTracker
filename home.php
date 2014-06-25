@@ -65,11 +65,10 @@
                 }
             }
 
-            function mouseOverHandler() {
-                var selectedItem = chart.getSelection()[0];
-                if (selectedItem) {
-                    var topping = data.getValue(selectedItem.row, 0);
-                    alert('The user selected ' + topping);
+            function mouseOverHandler(item) {
+                if (item) {
+                    var topping = data.getValue(item.row, 0);
+                    alert('The user hovered over ' + topping);
                 }
             }
 
