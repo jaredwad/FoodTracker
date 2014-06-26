@@ -30,7 +30,8 @@
     if (!$set) { echo "error in cooking_essentials query"; }
 
     $data = array();
-    $array = array();
+    $typeArray = array();
+    $amountArray = array();
     $colors = array();
     while($row = mysqli_fetch_array($set)) {
         $totalSize  += $row['amount'];
@@ -60,7 +61,8 @@
             $color = 'green';
         
         $data[] = $row;
-        $array[] = array($row['type'], $row['amount']);
+        $typeArray[] = $row['type'];
+        $amountArray[] = $row['amount'];
         $colors[] = $color;
     }
 
@@ -127,8 +129,9 @@
     <?php  
 //        while (
 
-    foreach ($array as list($a, $b)) {
-        echo "['" . $a . "'," . $b . "],\r\n";
+    for ($i = 0; $i < count($typeArray); ++$i) {
+        echo "['" . $typeArray[$i] . "'," . $amountArray[$i] . "],\r\n";
+//        print $array[$i];
     }
     
     ?>
