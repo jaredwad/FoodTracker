@@ -211,22 +211,22 @@
             var waterSize   = <?php echo $waterTotalSize;   ?>;
             
             /*** Colors ***/
-            var grainsColor  = getColor(<?php echo ($grainsTotalSize / $grainsNeededSize);   ?>);
-            var fatsColor    = getColor(<?php echo ($fatsTotalSize / $fatsNeededSize);       ?>);
+            var grainsColor  = getColor(<?php echo ($grainsTotalSize  / $grainsNeededSize ); ?>);
+            var fatsColor    = getColor(<?php echo ($fatsTotalSize    / $fatsNeededSize   ); ?>);
             var legumesColor = getColor(<?php echo ($legumesTotalSize / $legumesNeededSize); ?>);
-            var sugarsColor  = getColor(<?php echo ($sugarsTotalSize / $sugarsNeededSize);   ?>);
-            var milkColor    = getColor(<?php echo ($milkTotalSize / $milkNeededSize);       ?>);
+            var sugarsColor  = getColor(<?php echo ($sugarsTotalSize  / $sugarsNeededSize ); ?>);
+            var milkColor    = getColor(<?php echo ($milkTotalSize    / $milkNeededSize   ); ?>);
             var cookingColor = getColor(<?php echo ($cookingTotalSize / $cookingNeededSize); ?>);
-            var waterColor   = getColor(<?php echo ($waterTotalSize / $waterNeededSize);     ?>);
+            var waterColor   = getColor(<?php echo ($waterTotalSize   / $waterNeededSize  ); ?>);
             
             /*** HTML Content ***/
-            var grainsContent  = <?php echo $grainsList;  ?>;
-            var fatsContent    = <?php echo $fatsList;    ?>;
-            var legumesContent = <?php echo $legumesList; ?>;
-            var sugarsContent  = <?php echo $sugarsList;  ?>;
-            var milkContent    = <?php echo $milkList;    ?>;
-            var cookingContent = <?php echo $cookingList; ?>;
-            var waterContent   = <?php echo $waterList;   ?>;
+            grainsContent  = "<?php echo $grainsList;  ?>";
+            fatsContent    = "<?php echo $fatsList;    ?>";
+            legumesContent = "<?php echo $legumesList; ?>";
+            sugarsContent  = "<?php echo $sugarsList;  ?>";
+            milkContent    = "<?php echo $milkList;    ?>";
+            cookingContent = "<?php echo $cookingList; ?>";
+            waterContent   = "<?php echo $waterList;   ?>";
 
             //Global variable!!! Good thing Brother Helfrich won't be looking at my code
             data = google.visualization.arrayToDataTable([
@@ -287,8 +287,38 @@
 
         function HTMLContent(e) {
             var FoodType = data.getFormattedValue(e.row, 0);
+            var content  = getContent(FoodType);
+            var num      = (content.split("<br>").length - 1) * 10;
 
-            return '<div style="padding:5px 5px 5px 5px;"> html content! ' + FoodType + '</div>';
+//            $(".google-visualization-tooltip").style("height: 800px");
+            return '<div class="test">' + content + '</div>';
+        }
+        
+        function getContent(FoodType) {
+            switch(FoodType) {
+                case 'Grains':
+                    return grainsContent;
+                
+                case 'Fats and Oils':
+                    return fatsContent + legumesContent;
+                
+                case 'Legumes':
+                    return legumesContent;
+                
+                case 'Sugars':
+                    return sugarsContent;
+                
+                case 'Milk':
+                    return milkContent;
+                
+                case 'Cooking Essentials':
+                    return cookingContent;
+                
+                case 'Water':
+                    return waterContent;
+            }
+            
+            return "We're sorry, but there appears to be an error in our data <br>";
         }
     </script>
 

@@ -12,3 +12,21 @@ It destroys the interactible nature of the pie chart */
     width: 900px;
     height: 800px;
 }
+.google-visualization-tooltip {
+    padding: 1px;
+    text-align: center;
+}
+.google-visualization-tooltip-item-list {
+    padding: 0px;
+    margin: 0px;
+}
+.google-visualization-tooltip-item {
+    padding: 0px;
+    margin: 0px;
+}
+.test {
+    color: 'black';
+    background-color: 'white';
+    padding: 5px 5px 5px 5px;
+    text-transform: capitalize;
+}
