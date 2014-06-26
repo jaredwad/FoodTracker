@@ -1,6 +1,16 @@
 <?php session_start();
 
-    if (!function_exists('lc')) {
+function lcallfirst($string)
+{
+$string=explode("_",$string);
+$i=0;
+while($i<count($string))
+{$string[$i]=lcfirst($string[$i]);
+$i++;}
+return implode("_",$string);
+}
+
+    if (!function_exists('lcfirst')) {
 
         function lcfirst($str)
         {
@@ -31,7 +41,7 @@
     $table = str_replace(" ","_",$name);
 
 
-    $query = "SELECT * FROM " . lc($table) . " WHERE user_id ='" . $_SESSION['user_id'] . "'";
+    $query = "SELECT * FROM " . lcallfirst($table) . " WHERE user_id ='" . $_SESSION['user_id'] . "'";
 
 //   echo $query;
                 
