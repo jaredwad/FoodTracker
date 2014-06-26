@@ -39,7 +39,7 @@
     $list = '';
 
     // Checks if the query is returning a result
-    if (!$set) { echo "error in cooking_essentials query"; }
+    if (!$set) { echo "error in query " . $query; }
 
     $data = array();
     $typeArray = array();

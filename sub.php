@@ -8,8 +8,6 @@
     $type   = strtolower($_POST['type']);
     $table  = strtolower($_POST['table']);
 
-    echo $amount . "\r\n" . $current . "\r\n" . $type . "\r\n" . $table . "<br>\r\n";//. $table;
-
     // Establish database connection
     $con = mysqli_connect("localhost", "FTupdate", "update", "FoodTracker");
             
@@ -24,28 +22,50 @@
 
     mysqli_close($con);
 ?>
-<script type="text/javascript">
-var url = getURL(e[0]);
-                var form = $('<form action="' + url + '" method="post">' +
-                             '<input type="text" name="type" value="' + data.getFormattedValue(e[0].row, 0) + '" />' +
-                             '</form>');
-                $('body').append(form);  // This line is not necessary
-                $(form).submit();
-                
-//                console.log(url);
-//                window.location = getURL(e[0]);
-            });
+<html>
 
-            chart.draw(data, options);
-        }
-        
-        function getURL(e) {
-            var FoodType = data.getFormattedValue(e.row, 0);
-            
-            var url = document.URL.substr(0, document.URL.lastIndexOf("/") + 1);
-            
-//            return url + FoodType.toLowerCase().replace(/\s+/g, '') + ".php";
-            
-            return document.URL.substr(0, document.URL.lastIndexOf("/") + 1) + "individual.php"
-        }
-        </script>
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Jared Wadsworth">
+    <link rel="shortcut icon" href="images/wheat-icon.ico">
+    <title>FoodTracker
+        <?php echo $_POST[ 'type']; ?>
+    </title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="individual.css">
+
+    <!-- Minified JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+                var url = document.URL.substr(0, document.URL.lastIndexOf("/") + 1) + "individual.php";
+                var form = $('<form action="' + url + '" method="post">' +
+                    '<input type="text" name="type" value="<?php echo $table; ?>" />' +
+                    '</form>');
+                console.log("made it here");
+                $('body').append(form); // This line is not necessary
+                $(form).submit();
+            });
+    </script>
+
+</head>
+
+<body>
+</body>
+
+</html>
