@@ -27,7 +27,7 @@
 
     while($row = mysqli_fetch_array($cookingSet)) {
         $cookingTotalSize  += $row['amount'];
-        $cookingNeededSize += $row['amount_needed '];
+        $cookingNeededSize += $row['amount_needed'];
     }
 
 //
@@ -43,9 +43,9 @@
     // Checks if the query is returning a result
     if (!$fatsSet) { echo "error in fats_and_oils query"; }
 
-    while($row = mysqli_fetch_array($cookingSet)) {
+    while($row = mysqli_fetch_array($fatsSet)) {
         $fatsTotalSize  += $row['amount'];
-        $fatsNeededSize += $row['amount_needed '];
+        $fatsNeededSize += $row['amount_needed'];
     }
 
 //
@@ -61,9 +61,9 @@
     // Checks if the query is returning a result
     if (!$grainsSet) { echo "error in grains query"; }
 
-    while($row = mysqli_fetch_array($cookingSet)) {
+    while($row = mysqli_fetch_array($grainsSet)) {
         $grainsTotalSize  += $row['amount'];
-        $grainsNeededSize += $row['amount_needed '];
+        $grainsNeededSize += $row['amount_needed'];
     }
 
 //
@@ -79,9 +79,9 @@
     // Checks if the query is returning a result
     if (!$legumesSet) { echo "error in legumes query"; }
 
-    while($row = mysqli_fetch_array($cookingSet)) {
+    while($row = mysqli_fetch_array($legumesSet)) {
         $legumesTotalSize  += $row['amount'];
-        $legumesNeededSize += $row['amount_needed '];
+        $legumesNeededSize += $row['amount_needed'];
     }
 
 //
@@ -97,9 +97,9 @@
     // Checks if the query is returning a result
     if (!$milkSet) { echo "error in milk query"; }
 
-    while($row = mysqli_fetch_array($cookingSet)) {
+    while($row = mysqli_fetch_array($milkSet)) {
         $milkTotalSize  += $row['amount'];
-        $milkNeededSize += $row['amount_needed '];
+        $milkNeededSize += $row['amount_needed'];
     }
 
 //
@@ -115,9 +115,9 @@
     // Checks if the query is returning a result
     if (!$sugarsSet) { echo "error in sugars query"; }
 
-    while($row = mysqli_fetch_array($cookingSet)) {
+    while($row = mysqli_fetch_array($sugarsSet)) {
         $sugarsTotalSize  += $row['amount'];
-        $sugarsNeededSize += $row['amount_needed '];
+        $sugarsNeededSize += $row['amount_needed'];
     }
 
 //
@@ -133,9 +133,9 @@
     // Checks if the query is returning a result
     if (!$waterSet) { echo "error in water query"; }
 
-    while($row = mysqli_fetch_array($cookingSet)) {
-        $fatsTotalSize  += $row['amount'];
-        $fatsNeededSize += $row['amount_needed '];
+    while($row = mysqli_fetch_array($waterSet)) {
+        $waterTotalSize  += $row['amount'];
+        $waterNeededSize += $row['amount_needed'];
     }
 ?>
 
@@ -180,23 +180,23 @@
             /*****  Get all the variables needed for this chart *****/
 
             /*** Size (lbs) ***/
-            var grainsSize  = 210;
-            var fatsSize    = 210;
-            var legumesSize = 210;
-            var sugarsSize  = 210;
-            var milkSize    = 210;
-            var cookingSize = 210;
-            var waterSize   = 210;
+            var grainsSize  = <?php echo $grainsTotalSize; ?>;
+            var fatsSize    = <?php echo $fatsTotalSize; ?>;
+            var legumesSize = <?php echo $legumesTotalSize; ?>;
+            var sugarsSize  = <?php echo $sugarsTotalSize; ?>;
+            var milkSize    = <?php echo $milkTotalSize; ?>;
+            var cookingSize = <?php echo $cookingTotalSize; ?>;
+            var waterSize   = <?php echo $waterTotalSize; ?>;
 
             
             /*** Colors ***/
-            var grainsColor  = 'red';
-            var fatsColor    = 'red';
-            var legumesColor = 'red';
-            var sugarsColor  = 'red';
-            var milkColor    = 'red';
-            var cookingColor = 'red';
-            var waterColor   = 'red';
+            var grainsColor  = getColor(<?php echo ($grainsTotalSize / $grainsNeededSize); ?>);
+            var fatsColor    = getColor(<?php echo ($fatsTotalSize / $fatsNeededSize); ?>);
+            var legumesColor = getColor(<?php echo ($legumesTotalSize / $legumesNeededSize); ?>);
+            var sugarsColor  = getColor(<?php echo ($sugarsTotalSize / $sugarsNeededSize); ?>);
+            var milkColor    = getColor(<?php echo ($milkTotalSize / $milkNeededSize); ?>);
+            var cookingColor = getColor(<?php echo ($cookingTotalSize / $cookingNeededSize); ?>);
+            var waterColor   = getColor(<?php echo ($waterTotalSize / $waterNeededSize); ?>);
 
             //Global variable!!! Good thing Brother Helfrich won't be looking at my code
             data = google.visualization.arrayToDataTable([
@@ -219,6 +219,7 @@
             var options = {
                 legend: 'none',
                 pieSliceText: 'label',
+                pieSliceTextStyle: {color: 'black', fontName: 'Arial', fontSize: 'automatic' },
                 colors: [grainsColor, fatsColor, legumesColor, sugarsColor, milkColor, cookingColor, waterColor],
                 pieSliceBorderColor: 'black',
                 pieStartAngle: 30,
@@ -243,6 +244,15 @@
             });
 
             chart.draw(data, options);
+        }
+        
+        function getColor(percent) {
+            if (percent <= .75)
+                return 'red';
+            else if (percent < 1)
+                return 'yellow';
+            else
+                return 'green';
         }
 
         function HTMLContent(e) {

@@ -3,12 +3,12 @@ It destroys the interactible nature of the pie chart */
 
 .centeredPie {
     position: fixed;
-    top: 40%;
-    left: 40%;
+    top: 50%;
+    left: 45%;
     margin-top: -400px;
     /*half the image height*/
     margin-left: -400px;
     /*half the image width*/
-    width: 1000px;
-    height: 900px;
+    width: 900px;
+    height: 800px;
 }
