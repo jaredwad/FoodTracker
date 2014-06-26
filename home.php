@@ -271,9 +271,18 @@
                 //check row with e.row;
                 e = chart.getSelection();
                 $(".google-visualization-tooltip").html(HTMLContent(e[0]));
+                
+                var url = getURL(e[0]);
+                console.log( url );
+//                window.location = "http://www.yoururl.com";
             });
 
             chart.draw(data, options);
+        }
+        
+        function getURL(e) {
+            var FoodType = data.getFormattedValue(e.row, 0);
+            return window.location.host;
         }
         
         function getColor(percent) {
