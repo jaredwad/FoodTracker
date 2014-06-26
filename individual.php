@@ -1,10 +1,10 @@
 <?php session_start();
 
+    die("here");
+
     if (!isset($_SESSION[ 'user_id']) && !empty($_SESSION['user_id'])) { 
         header( 'Location: index.php');
     } 
-
-    die("here");
 
     // Establish database connection
     $con = mysqli_connect("localhost", "FTselect", "select", "FoodTracker");
