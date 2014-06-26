@@ -19,7 +19,7 @@
 
     $query = "SELECT * FROM " . $table . " WHERE user_id ='" . $_SESSION['user_id'] . "'";
 
-//    echo $query;
+   echo $query;
                 
     $set = mysqli_query($con, $query);
     $totalSize = 0;
