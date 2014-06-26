@@ -19,8 +19,9 @@
     $query = "SELECT * FROM cooking_essentials WHERE user_id ='" . $_SESSION['user_id'] . "'";
                 
     $cookingSet = mysqli_query($con, $query);
-    $cookingTotalSize;
-    $cookingNeededSize;
+    $cookingTotalSize = 0;
+    $cookingNeededSize = 0;
+    $cookingList = '';
 
     // Checks if the query is returning a result
     if (!$cookingSet) { echo "error in cooking_essentials query"; }
@@ -28,6 +29,8 @@
     while($row = mysqli_fetch_array($cookingSet)) {
         $cookingTotalSize  += $row['amount'];
         $cookingNeededSize += $row['amount_needed'];
+        $cookingList = $cookingList . $row['type'] . " <br> " . $row['amount'] . $row['measure'] . 
+            " / " . $row['amount_needed'] . $row['measure'] . " <br> ";
     }
 
 //
@@ -39,6 +42,7 @@
     $fatsSet = mysqli_query($con, $query);
     $fatsTotalSize;
     $fatsNeededSize;
+    $fatsList = '';
 
     // Checks if the query is returning a result
     if (!$fatsSet) { echo "error in fats_and_oils query"; }
@@ -46,6 +50,8 @@
     while($row = mysqli_fetch_array($fatsSet)) {
         $fatsTotalSize  += $row['amount'];
         $fatsNeededSize += $row['amount_needed'];
+        $fatsList = $fatsList . $row['type'] . " <br> " . $row['amount'] . $row['measure'] . 
+            " / " . $row['amount_needed'] . $row['measure'] . " <br> ";
     }
 
 //
@@ -57,6 +63,7 @@
     $grainsSet = mysqli_query($con, $query);
     $grainsTotalSize;
     $grainsNeededSize;
+    $grainsList = '';
 
     // Checks if the query is returning a result
     if (!$grainsSet) { echo "error in grains query"; }
@@ -64,6 +71,8 @@
     while($row = mysqli_fetch_array($grainsSet)) {
         $grainsTotalSize  += $row['amount'];
         $grainsNeededSize += $row['amount_needed'];
+        $grainsList = $grainsList . $row['type'] . " <br> " . $row['amount'] . $row['measure'] . 
+            " / " . $row['amount_needed'] . $row['measure'] . " <br> ";
     }
 
 //
@@ -75,6 +84,7 @@
     $legumesSet = mysqli_query($con, $query);
     $legumesTotalSize;
     $legumesNeededSize;
+    $legumesList = '';
 
     // Checks if the query is returning a result
     if (!$legumesSet) { echo "error in legumes query"; }
@@ -82,6 +92,8 @@
     while($row = mysqli_fetch_array($legumesSet)) {
         $legumesTotalSize  += $row['amount'];
         $legumesNeededSize += $row['amount_needed'];
+        $legumesList = legumesList . $row['type'] . " <br> " . $row['amount'] . $row['measure'] . 
+            " / " . $row['amount_needed'] . $row['measure'] . " <br> ";
     }
 
 //
@@ -93,6 +105,7 @@
     $milkSet = mysqli_query($con, $query);
     $milkTotalSize;
     $milkNeededSize;
+    $milkList = '';
 
     // Checks if the query is returning a result
     if (!$milkSet) { echo "error in milk query"; }
@@ -100,6 +113,8 @@
     while($row = mysqli_fetch_array($milkSet)) {
         $milkTotalSize  += $row['amount'];
         $milkNeededSize += $row['amount_needed'];
+        $milkList = $milkList . $row['type'] . " <br> " . $row['amount'] . $row['measure'] . 
+            " / " . $row['amount_needed'] . $row['measure'] . " <br> ";
     }
 
 //
@@ -111,6 +126,7 @@
     $sugarsSet = mysqli_query($con, $query);
     $sugarsTotalSize;
     $sugarsNeededSize;
+    $sugarsList = '';
 
     // Checks if the query is returning a result
     if (!$sugarsSet) { echo "error in sugars query"; }
@@ -118,6 +134,8 @@
     while($row = mysqli_fetch_array($sugarsSet)) {
         $sugarsTotalSize  += $row['amount'];
         $sugarsNeededSize += $row['amount_needed'];
+        $sugarsList = $sugarsList . $row['type'] . " <br> " . $row['amount'] . $row['measure'] . 
+            " / " . $row['amount_needed'] . $row['measure'] . " <br> ";
     }
 
 //
@@ -129,6 +147,8 @@
     $waterSet = mysqli_query($con, $query);
     $waterTotalSize;
     $waterNeededSize;
+    $waterList = '';
+    
 
     // Checks if the query is returning a result
     if (!$waterSet) { echo "error in water query"; }
@@ -136,6 +156,8 @@
     while($row = mysqli_fetch_array($waterSet)) {
         $waterTotalSize  += $row['amount'];
         $waterNeededSize += $row['amount_needed'];
+        $waterList = $waterList . $row['type'] . " <br> " . $row['amount'] . $row['measure'] . 
+            " / " . $row['amount_needed'] . $row['measure'] . " <br> ";
     }
 ?>
 
@@ -179,24 +201,32 @@
 
             /*****  Get all the variables needed for this chart *****/
 
-            /*** Size (lbs) ***/
-            var grainsSize  = <?php echo $grainsTotalSize; ?>;
-            var fatsSize    = <?php echo $fatsTotalSize; ?>;
+            /*** Size ***/
+            var grainsSize  = <?php echo $grainsTotalSize;  ?>;
+            var fatsSize    = <?php echo $fatsTotalSize;    ?>;
             var legumesSize = <?php echo $legumesTotalSize; ?>;
-            var sugarsSize  = <?php echo $sugarsTotalSize; ?>;
-            var milkSize    = <?php echo $milkTotalSize; ?>;
+            var sugarsSize  = <?php echo $sugarsTotalSize;  ?>;
+            var milkSize    = <?php echo $milkTotalSize;    ?>;
             var cookingSize = <?php echo $cookingTotalSize; ?>;
-            var waterSize   = <?php echo $waterTotalSize; ?>;
-
+            var waterSize   = <?php echo $waterTotalSize;   ?>;
             
             /*** Colors ***/
-            var grainsColor  = getColor(<?php echo ($grainsTotalSize / $grainsNeededSize); ?>);
-            var fatsColor    = getColor(<?php echo ($fatsTotalSize / $fatsNeededSize); ?>);
+            var grainsColor  = getColor(<?php echo ($grainsTotalSize / $grainsNeededSize);   ?>);
+            var fatsColor    = getColor(<?php echo ($fatsTotalSize / $fatsNeededSize);       ?>);
             var legumesColor = getColor(<?php echo ($legumesTotalSize / $legumesNeededSize); ?>);
-            var sugarsColor  = getColor(<?php echo ($sugarsTotalSize / $sugarsNeededSize); ?>);
-            var milkColor    = getColor(<?php echo ($milkTotalSize / $milkNeededSize); ?>);
+            var sugarsColor  = getColor(<?php echo ($sugarsTotalSize / $sugarsNeededSize);   ?>);
+            var milkColor    = getColor(<?php echo ($milkTotalSize / $milkNeededSize);       ?>);
             var cookingColor = getColor(<?php echo ($cookingTotalSize / $cookingNeededSize); ?>);
-            var waterColor   = getColor(<?php echo ($waterTotalSize / $waterNeededSize); ?>);
+            var waterColor   = getColor(<?php echo ($waterTotalSize / $waterNeededSize);     ?>);
+            
+            /*** HTML Content ***/
+            var grainsContent  = <?php echo $grainsList;  ?>;
+            var fatsContent    = <?php echo $fatsList;    ?>;
+            var legumesContent = <?php echo $legumesList; ?>;
+            var sugarsContent  = <?php echo $sugarsList;  ?>;
+            var milkContent    = <?php echo $milkList;    ?>;
+            var cookingContent = <?php echo $cookingList; ?>;
+            var waterContent   = <?php echo $waterList;   ?>;
 
             //Global variable!!! Good thing Brother Helfrich won't be looking at my code
             data = google.visualization.arrayToDataTable([

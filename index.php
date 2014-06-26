@@ -56,12 +56,12 @@
     JavaScript
     JQuery
     MySQL
+    Bash scripting
     PHPMyAdmin
     MAMP
     Amazon AWS server
     Adobe Brackets
     GitHub
-    Bash scripting
     -->
 
     <meta charset="utf-8">
