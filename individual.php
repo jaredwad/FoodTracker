@@ -1,6 +1,6 @@
 <?php session_start();
 
-    if (!function_exists('lcfirst')) {
+    if (!function_exists('lc')) {
 
         function lcfirst($str)
         {
@@ -28,10 +28,10 @@
 
     $name = $_POST['type'];
 
-    $table = lcfirst(str_replace(" ","_",$name));
+    $table = str_replace(" ","_",$name);
 
 
-    $query = "SELECT * FROM " . lcfirst($table) . " WHERE user_id ='" . $_SESSION['user_id'] . "'";
+    $query = "SELECT * FROM " . lc($table) . " WHERE user_id ='" . $_SESSION['user_id'] . "'";
 
 //   echo $query;
                 
