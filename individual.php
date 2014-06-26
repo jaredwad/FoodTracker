@@ -1,5 +1,17 @@
 <?php session_start();
 
+    if (!function_exists('lcfirst')) {
+
+        function lcfirst($str)
+        {
+            $str = is_string($str) ? $str : '';
+            if(mb_strlen($str) > 0) {
+                $str[0] = mb_strtolower($str[0]);
+            }
+            return $str;
+        }
+    }
+
     if (!isset($_SESSION[ 'user_id']) && !empty($_SESSION['user_id'])) { 
         header( 'Location: index.php');
     } 
@@ -17,7 +29,7 @@
     $table = str_replace(" ","_",$name);
 
 
-    $query = "SELECT * FROM " . $table . " WHERE user_id ='" . $_SESSION['user_id'] . "'";
+    $query = "SELECT * FROM " . lcfirst($table) . " WHERE user_id ='" . $_SESSION['user_id'] . "'";
 
    echo $query;
                 
