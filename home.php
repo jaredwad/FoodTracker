@@ -30,7 +30,7 @@
         $cookingTotalSize  += $row['amount'];
         $cookingNeededSize += $row['amount_needed'];
         $cookingList = $cookingList . $row['type'] . " <br> " . $row['amount'] . $row['measure'] . 
-            " / " . $row['amount_needed'] . $row['measure'] . " <br> ";
+            " / " . $row['amount_needed'] . $row['measure'] . " <br> <br>";
     }
 
 //
@@ -51,7 +51,7 @@
         $fatsTotalSize  += $row['amount'];
         $fatsNeededSize += $row['amount_needed'];
         $fatsList = $fatsList . $row['type'] . " <br> " . $row['amount'] . $row['measure'] . 
-            " / " . $row['amount_needed'] . $row['measure'] . " <br> ";
+            " / " . $row['amount_needed'] . $row['measure'] . " <br> <br> ";
     }
 
 //
@@ -72,7 +72,7 @@
         $grainsTotalSize  += $row['amount'];
         $grainsNeededSize += $row['amount_needed'];
         $grainsList = $grainsList . $row['type'] . " <br> " . $row['amount'] . $row['measure'] . 
-            " / " . $row['amount_needed'] . $row['measure'] . " <br> ";
+            " / " . $row['amount_needed'] . $row['measure'] . " <br> <br>";
     }
 
 //
@@ -92,8 +92,8 @@
     while($row = mysqli_fetch_array($legumesSet)) {
         $legumesTotalSize  += $row['amount'];
         $legumesNeededSize += $row['amount_needed'];
-        $legumesList = legumesList . $row['type'] . " <br> " . $row['amount'] . $row['measure'] . 
-            " / " . $row['amount_needed'] . $row['measure'] . " <br> ";
+        $legumesList = $legumesList . $row['type'] . " <br> " . $row['amount'] . $row['measure'] . 
+            " / " . $row['amount_needed'] . $row['measure'] . " <br> <br>";
     }
 
 //
@@ -114,7 +114,7 @@
         $milkTotalSize  += $row['amount'];
         $milkNeededSize += $row['amount_needed'];
         $milkList = $milkList . $row['type'] . " <br> " . $row['amount'] . $row['measure'] . 
-            " / " . $row['amount_needed'] . $row['measure'] . " <br> ";
+            " / " . $row['amount_needed'] . $row['measure'] . " <br> <br>";
     }
 
 //
@@ -135,7 +135,7 @@
         $sugarsTotalSize  += $row['amount'];
         $sugarsNeededSize += $row['amount_needed'];
         $sugarsList = $sugarsList . $row['type'] . " <br> " . $row['amount'] . $row['measure'] . 
-            " / " . $row['amount_needed'] . $row['measure'] . " <br> ";
+            " / " . $row['amount_needed'] . $row['measure'] . " <br> <br>";
     }
 
 //
@@ -157,7 +157,7 @@
         $waterTotalSize  += $row['amount'];
         $waterNeededSize += $row['amount_needed'];
         $waterList = $waterList . $row['type'] . " <br> " . $row['amount'] . $row['measure'] . 
-            " / " . $row['amount_needed'] . $row['measure'] . " <br> ";
+            " / " . $row['amount_needed'] . $row['measure'] . " <br> <br>";
     }
 ?>
 
@@ -300,7 +300,7 @@
                     return grainsContent;
                 
                 case 'Fats and Oils':
-                    return fatsContent + legumesContent;
+                    return fatsContent;
                 
                 case 'Legumes':
                     return legumesContent;
