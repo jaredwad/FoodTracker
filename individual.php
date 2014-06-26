@@ -36,7 +36,8 @@
         $totalSize  += $row['amount'];
         $neededSize += $row['amount_needed'];
         $list = $list . $row['type'] . " <br> " . $row['amount'] . $row['measure'] . 
-            " / " . $row['amount_needed'] . $row['measure'] . " <br> <br>";
+            " / " . $row['amount_needed'] . $row['measure'] . " <br> <br>" .
+            "<form name='" . $row['type'] . "' action='add.php' method='post'>add<input type='number' min='1' name='add'><input type='submit'></form>";
         
         $color = $row['amount'] / $row['amount_needed'];
         
@@ -53,8 +54,8 @@
     }
 
 //    $data = array($name => $customer);
-    echo json_encode($data);
-    echo json_encode($array);
+//    echo json_encode($data);
+//    echo json_encode($array);
 
 //    echo $list;
     
@@ -106,34 +107,6 @@
         function drawChart() {
 
             /*****  Get all the variables needed for this chart *****/
-
-            /*** Size ***/
-            var grainsSize  = <?php echo $grainsTotalSize;  ?>;
-            var fatsSize    = <?php echo $fatsTotalSize;    ?>;
-            var legumesSize = <?php echo $legumesTotalSize; ?>;
-            var sugarsSize  = <?php echo $sugarsTotalSize;  ?>;
-            var milkSize    = <?php echo $milkTotalSize;    ?>;
-            var cookingSize = <?php echo $cookingTotalSize; ?>;
-            var waterSize   = <?php echo $waterTotalSize;   ?>;
-            
-            /*** Colors ***/
-            var grainsColor  = getColor(<?php echo ($grainsTotalSize  / $grainsNeededSize ); ?>);
-            var fatsColor    = getColor(<?php echo ($fatsTotalSize    / $fatsNeededSize   ); ?>);
-            var legumesColor = getColor(<?php echo ($legumesTotalSize / $legumesNeededSize); ?>);
-            var sugarsColor  = getColor(<?php echo ($sugarsTotalSize  / $sugarsNeededSize ); ?>);
-            var milkColor    = getColor(<?php echo ($milkTotalSize    / $milkNeededSize   ); ?>);
-            var cookingColor = getColor(<?php echo ($cookingTotalSize / $cookingNeededSize); ?>);
-            var waterColor   = getColor(<?php echo ($waterTotalSize   / $waterNeededSize  ); ?>);
-            
-            /*** HTML Content ***/
-            grainsContent  = "<?php echo $grainsList;  ?>";
-            fatsContent    = "<?php echo $fatsList;    ?>";
-            legumesContent = "<?php echo $legumesList; ?>";
-            sugarsContent  = "<?php echo $sugarsList;  ?>";
-            milkContent    = "<?php echo $milkList;    ?>";
-            cookingContent = "<?php echo $cookingList; ?>";
-            waterContent   = "<?php echo $waterList;   ?>";
-
             //Global variable!!! Good thing Brother Helfrich won't be looking at my code
             data = google.visualization.arrayToDataTable([
       ['Food', 'Percentage of total storage (lbs)'],
@@ -162,7 +135,7 @@
                     
                     $string = "colors: [";
                     foreach ($colors as &$color) {
-                        $string = $string . $color . ',';
+                        $string = $string . "'" . $color . "',";
                     }
                     
                     echo rtrim($string, ",") . "],\r\n";
@@ -262,7 +235,6 @@
 
 <body>
 
-    <div><?php echo $list; ?></div>
     <!--Div that will hold the pie chart-->
     <div id="piechart" class="centeredPie">got here</div>
 
