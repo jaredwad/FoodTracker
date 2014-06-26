@@ -6,7 +6,9 @@
         {
             $str = is_string($str) ? $str : '';
             if(mb_strlen($str) > 0) {
-                $str[0] = mb_strtolower($str[0]);
+                for ($i=0; $i<=mb_strlen($str); $i++) {
+                    $str[$i] = mb_strtolower($str[$i]);
+                } 
             }
             return $str;
         }
