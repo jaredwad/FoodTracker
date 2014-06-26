@@ -27,3 +27,8 @@
     border-width: 1px;
     text-align: center;
 }
+.topcorner {
+    position: absolute;
+    top: 0;
+    left: 0;
+}

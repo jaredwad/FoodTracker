@@ -189,6 +189,7 @@
     <!--Div that will hold the pie chart-->
     <div id="piechart" class="centeredPie"></div>
     <div class="right" style="background-color: 'black';"><?php echo $list; ?></div>
+    <a href="home.php" class="topcorner">Back to Home</a>
 
 </body>
 
