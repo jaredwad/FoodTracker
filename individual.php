@@ -28,7 +28,7 @@
 
     $name = $_POST['type'];
 
-    $table = str_replace(" ","_",$name);
+    $table = lcfirst(str_replace(" ","_",$name));
 
 
     $query = "SELECT * FROM " . lcfirst($table) . " WHERE user_id ='" . $_SESSION['user_id'] . "'";
