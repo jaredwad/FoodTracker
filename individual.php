@@ -88,7 +88,7 @@
     <link rel="stylesheet" href="css/bootstrap-theme.min.css">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="individual.css">
 
     <!-- Minified JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>

@@ -1,0 +1,20 @@
+.centeredPie {
+    position: fixed;
+    top: 60%;
+    left: 30%;
+    margin-top: -400px;
+    /*half the image height*/
+    margin-left: -400px;
+    /*half the image width*/
+    width: 800px;
+    height: 600px;
+}
+.test {
+    color: 'black';
+    background-color: #FFFFFF;
+    border-style: solid;
+    border-width: 5px;
+    padding: 5px 5px 5px 5px;
+    text-align: center;
+    text-transform: capitalize;
+}
