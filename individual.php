@@ -14,7 +14,7 @@
 
     $name = $_POST['type'];
 
-    $table = str_replace(" ","_",$name);
+    $table = $name; //strtolower(str_replace(" ","_",$name));
 
 
     $query = "SELECT * FROM " . $table . " WHERE user_id ='" . $_SESSION['user_id'] . "'";
