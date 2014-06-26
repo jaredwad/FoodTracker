@@ -36,11 +36,19 @@
         $totalSize  += $row['amount'];
         $neededSize += $row['amount_needed'];
         $list = $list . $row['type'] . " <br> " . $row['amount'] . $row['measure'] . 
-            " / " . $row['amount_needed'] . $row['measure'] . " <br> <br>" .
-            "<form name='" . $row['type'] . "' action='add.php' method='post'>Add:&nbsp;" . 
-            "<input type='number' min='1' name='add'><input type='submit'></form>" .
-            "<form name='" . $row['type'] . "' action='sub.php' method='post'>Sub:&nbsp;" . 
-            "<input type='number' min='1' max='" . $row['amount'] . "' name='sub'><input type='submit'></form>";
+            " / " . $row['amount_needed'] . $row['measure'] . " <br> <br>\r\n" .
+            "<form action='add.php' method='post'>\r\nAdd:&nbsp;\r\n" . 
+            "<input type='number' min='1' name='amount' required>\r\n<input type='submit'>\r\n" .
+            "<input type='hidden' value='" . $row['amount'] . "' name='current'>\r\n" .
+            "<input type='hidden' value='" . $row['type'] . "' name='type'>\r\n" .
+            "<input type='hidden' value='" . $table . "' name='table'>\r\n</form>\r\n\r\n" .
+            
+            "<form action='sub.php' method='post'>\r\nSub:&nbsp;\r\n" . 
+            "<input type='number' min='1' max='" . $row['amount'] . "' name='amount' required>\r\n" . 
+            "<input type='submit'>\r\n" . 
+            "<input type='hidden' value='" . $row['amount'] . "' name='current'>\r\n" .
+            "<input type='hidden' value='" . $row['type'] . "' name='type'>\r\n" .
+            "<input type='hidden' value='" . $table . "' name='table'>\r\n</form>\r\n\r\n";
         
         $color = $row['amount'] / $row['amount_needed'];
         
