@@ -37,7 +37,10 @@
         $neededSize += $row['amount_needed'];
         $list = $list . $row['type'] . " <br> " . $row['amount'] . $row['measure'] . 
             " / " . $row['amount_needed'] . $row['measure'] . " <br> <br>" .
-            "<form name='" . $row['type'] . "' action='add.php' method='post'>add<input type='number' min='1' name='add'><input type='submit'></form>";
+            "<form name='" . $row['type'] . "' action='add.php' method='post'>Add:&nbsp;" . 
+            "<input type='number' min='1' name='add'><input type='submit'></form>" .
+            "<form name='" . $row['type'] . "' action='sub.php' method='post'>Sub:&nbsp;" . 
+            "<input type='number' min='1' max='" . $row['amount'] . "' name='sub'><input type='submit'></form>";
         
         $color = $row['amount'] / $row['amount_needed'];
         
@@ -52,6 +55,9 @@
         $array[] = array( ucwords($row['type']), $row['amount']);
         $colors[] = $color;
     }
+
+//    $list = $list . "<form name='" . $row['type'] . "' action='new.php' method='post'>New Type:&nbsp;" . 
+//            "<input type='number' min='1' max='" . $row['amount'] . "' name='sub'><input type='submit'></form>";
 
 //    $data = array($name => $customer);
 //    echo json_encode($data);
@@ -236,7 +242,8 @@
 <body>
 
     <!--Div that will hold the pie chart-->
-    <div id="piechart" class="centeredPie">got here</div>
+    <div id="piechart" class="centeredPie"></div>
+    <div class="right" style="background-color: 'black';"><?php echo $list; ?></div>
 
 </body>
 

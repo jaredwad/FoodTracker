@@ -18,3 +18,12 @@
     text-align: center;
     text-transform: capitalize;
 }
+.right {
+    position: absolute;
+    right: 20%;
+    top: 15%;
+    width: 300px;
+    border-style: solid;
+    border-width: 1px;
+    text-align: center;
+}
