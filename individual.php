@@ -14,7 +14,7 @@
 
     $name = $_POST['type'];
 
-    $table = $name; //strtolower(str_replace(" ","_",$name));
+    $table = str_replace(" ","_",$name);
 
 
     $query = "SELECT * FROM " . $table . " WHERE user_id ='" . $_SESSION['user_id'] . "'";
@@ -60,7 +60,7 @@
             $color = 'green';
         
         $data[] = $row;
-        $array[] = array( ucwords($row['type']), $row['amount']);
+        $array[] = array($row['type'], $row['amount']);
         $colors[] = $color;
     }
 
