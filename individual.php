@@ -4,6 +4,8 @@
         header( 'Location: index.php');
     } 
 
+    die("here");
+
     // Establish database connection
     $con = mysqli_connect("localhost", "FTselect", "select", "FoodTracker");
             
