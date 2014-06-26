@@ -11,7 +11,7 @@
     echo $amount . "\r\n" . $current . "\r\n" . $type . "\r\n" . $table . "<br>\r\n";//. $table;
 
     // Establish database connection
-    $con = mysqli_connect("localhost", "FTselect", "select", "FoodTracker");
+    $con = mysqli_connect("localhost", "FTupdate", "update", "FoodTracker");
             
     // Check connection
     if (mysqli_connect_errno()) {
