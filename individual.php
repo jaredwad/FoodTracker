@@ -1,4 +1,5 @@
 <?php session_start();
+
     if (!isset($_SESSION[ 'user_id']) && !empty($_SESSION['user_id'])) { 
         header( 'Location: index.php');
     } 
@@ -29,16 +30,31 @@
     if (!$set) { echo "error in cooking_essentials query"; }
 
     $data = array();
+    $array = array();
+    $colors = array();
     while($row = mysqli_fetch_array($set)) {
         $totalSize  += $row['amount'];
         $neededSize += $row['amount_needed'];
         $list = $list . $row['type'] . " <br> " . $row['amount'] . $row['measure'] . 
             " / " . $row['amount_needed'] . $row['measure'] . " <br> <br>";
+        
+        $color = $row['amount'] / $row['amount_needed'];
+        
+        if ($color <= .75)
+            $color = 'red';
+        else if ($color < 1)
+            $color = 'yellow';
+        else
+            $color = 'green';
+        
         $data[] = $row;
+        $array[] = array( ucwords($row['type']), $row['amount']);
+        $colors[] = $color;
     }
 
 //    $data = array($name => $customer);
     echo json_encode($data);
+    echo json_encode($array);
 
 //    echo $list;
     
@@ -121,13 +137,15 @@
             //Global variable!!! Good thing Brother Helfrich won't be looking at my code
             data = google.visualization.arrayToDataTable([
       ['Food', 'Percentage of total storage (lbs)'],
-      ['Grains', grainsSize],
-      ['Fats and Oils', fatsSize],
-      ['Legumes', legumesSize],
-      ['Sugars', sugarsSize],
-      ['Milk', milkSize],
-      ['Cooking Essentials', cookingSize],
-      ['Water', waterSize]
+    <?php  
+//        while (
+
+    foreach ($array as list($a, $b)) {
+        echo "['" . $a . "'," . $b . "],\r\n";
+    }
+    
+    ?>
+      
     ]);
 
             //Global variable!!! Good thing Brother Helfrich won't be looking at my code
@@ -140,7 +158,15 @@
                 legend: 'none',
                 pieSliceText: 'label',
                 pieSliceTextStyle: {color: 'black', fontName: 'Arial', fontSize: 'automatic' },
-                colors: [grainsColor, fatsColor, legumesColor, sugarsColor, milkColor, cookingColor, waterColor],
+                <?php 
+                    
+                    $string = "colors: [";
+                    foreach ($colors as &$color) {
+                        $string = $string . $color . ',';
+                    }
+                    
+                    echo rtrim($string, ",") . "],\r\n";
+                ?>
                 pieSliceBorderColor: 'black',
                 pieStartAngle: 30,
                 tooltip: {
