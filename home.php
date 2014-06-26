@@ -172,7 +172,7 @@
     <meta name="description" content="">
     <meta name="author" content="Jared Wadsworth">
     <link rel="shortcut icon" href="images/wheat-icon.ico">
-    <title>FoodTracker login</title>
+    <title>FoodTracker Home</title>
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -273,8 +273,14 @@
                 $(".google-visualization-tooltip").html(HTMLContent(e[0]));
                 
                 var url = getURL(e[0]);
-                console.log( url );
-//                window.location = "http://www.yoururl.com";
+                var form = $('<form action="' + url + '" method="post">' +
+                             '<input type="text" name="type" value="' + data.getFormattedValue(e[0].row, 0) + '" />' +
+                             '</form>');
+                $('body').append(form);  // This line is not necessary
+                $(form).submit();
+                
+//                console.log(url);
+//                window.location = getURL(e[0]);
             });
 
             chart.draw(data, options);
@@ -282,7 +288,12 @@
         
         function getURL(e) {
             var FoodType = data.getFormattedValue(e.row, 0);
-            return window.location.host;
+            
+            var url = document.URL.substr(0, document.URL.lastIndexOf("/") + 1);
+            
+//            return url + FoodType.toLowerCase().replace(/\s+/g, '') + ".php";
+            
+            return document.URL.substr(0, document.URL.lastIndexOf("/") + 1) + "individual.php"
         }
         
         function getColor(percent) {
