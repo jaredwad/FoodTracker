@@ -29,7 +29,7 @@ INSERT INTO `cooking_essentials` (`cooking_essentials_id`, `user_id`, `type`, `a
 --
 
 INSERT INTO `fats_and_oils` (`fats_and_oils_id`, `user_id`, `type`, `amount`, `amount_needed`, `measure`) VALUES
-(1, 1, 'shortening', 10, 24, 'lbs'),
+(1, 1, 'shortening', 13, 24, 'lbs'),
 (2, 1, 'beanut butter', 24, 24, 'lbs');
 
 --
