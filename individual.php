@@ -170,94 +170,16 @@
                     echo rtrim($string, ",") . "],\r\n";
                 ?>
                 pieSliceBorderColor: 'black',
+                'tooltip' : { trigger: 'none'},
                 pieStartAngle: 30,
-                tooltip: {
-                    isHtml: true
-                }
             };
 
-            //This allows the creation of custom HTML tooltips which are created in
-            //the function HTMLContent(FoodType)
-            google.visualization.events.addListener(chart, 'onmouseover', function (e) {
-                //check row with e.row;                                
-                $(".google-visualization-tooltip").html(HTMLContent(e));
-            });
-
-            //This prevents the pie chart from reverting to default tooltip content
-            //when clicked
-            google.visualization.events.addListener(chart, 'select', function (e) {
-                //check row with e.row;
-                e = chart.getSelection();
-                $(".google-visualization-tooltip").html(HTMLContent(e[0]));
-                
-                var url = getURL(e[0]);
-                var form = $('<form action="' + url + '" method="post">' +
-                             '<input type="text" name="type" value="' + data.getFormattedValue(e[0].row, 0) + '" />' +
-                             '</form>');
-                $('body').append(form);  // This line is not necessary
-                $(form).submit();
-                
-//                console.log(url);
-//                window.location = getURL(e[0]);
-            });
+            
 
             chart.draw(data, options);
         }
-        
-        function getURL(e) {
-            var FoodType = data.getFormattedValue(e.row, 0);
-            
-            var url = document.URL.substr(0, document.URL.lastIndexOf("/") + 1);
-            
-//            return url + FoodType.toLowerCase().replace(/\s+/g, '') + ".php";
-            
-            return document.URL.substr(0, document.URL.lastIndexOf("/") + 1) + "individual.php"
-        }
-        
-        function getColor(percent) {
-            if (percent <= .75)
-                return 'red';
-            else if (percent < 1)
-                return 'yellow';
-            else
-                return 'green';
-        }
 
-        function HTMLContent(e) {
-            var FoodType = data.getFormattedValue(e.row, 0);
-            var content  = getContent(FoodType);
-            var num      = (content.split("<br>").length - 1) * 10;
-
-//            $(".google-visualization-tooltip").style("height: 800px");
-            return '<div class="test">' + content + '</div>';
-        }
         
-        function getContent(FoodType) {
-            switch(FoodType) {
-                case 'Grains':
-                    return grainsContent;
-                
-                case 'Fats and Oils':
-                    return fatsContent;
-                
-                case 'Legumes':
-                    return legumesContent;
-                
-                case 'Sugars':
-                    return sugarsContent;
-                
-                case 'Milk':
-                    return milkContent;
-                
-                case 'Cooking Essentials':
-                    return cookingContent;
-                
-                case 'Water':
-                    return waterContent;
-            }
-            
-            return "We're sorry, but there appears to be an error in our data <br>";
-        }
     </script>
     
 </head>
