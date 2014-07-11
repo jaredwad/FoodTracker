@@ -1,13 +1,30 @@
+/*
 .centeredPie {
     position: fixed;
     top: 60%;
     left: 30%;
     margin-top: -400px;
-    /*half the image height*/
+
     margin-left: -400px;
-    /*half the image width*/
+
     width: 800px;
     height: 600px;
+}*/
+.centeredPie {
+/*    position: fixed;
+    top: 50%;
+    left: 45%;
+    margin-top: -300px;
+    /*half the image height*/
+/*    margin-left: -300px;
+    /*half the image width*/
+    width: 600px;
+    height: 500px;
+    float: left;
+}
+.pieText {
+    height: 500px;
+text-align: center;
 }
 .test {
     color: 'black';

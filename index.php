@@ -32,7 +32,6 @@
                         $_SESSION['last_name']   = $row['last_name'];
                         $_SESSION['email']       = $row['email'];
                         $_SESSION['last_login']  = $row['last_login'];
-  
                         header('Location: home.php');
                     }
                 }
@@ -82,6 +81,9 @@
     <!-- Optional theme -->
     <link rel="stylesheet" href="css/bootstrap-theme.min.css">
 
+    <!-- Minified JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    
     <!-- Latest compiled and minified JavaScript -->
     <script src="js/bootstrap.min.js"></script>
 

@@ -10,6 +10,8 @@ $i++;}
 return implode("_",$string);
 }
 
+/*========== Begin main php code =========*/
+
     if (!function_exists('lcfirst')) {
 
         function lcfirst($str)
@@ -60,20 +62,20 @@ return implode("_",$string);
     while($row = mysqli_fetch_array($set)) {
         $totalSize  += $row['amount'];
         $neededSize += $row['amount_needed'];
-        $list = $list . $row['type'] . " <br> " . $row['amount'] . $row['measure'] . 
-            " / " . $row['amount_needed'] . $row['measure'] . " <br> <br>\r\n" .
+        $list = $list . $row['type'] . " <br> " . $row['amount'] . ' ' . $row['measure'] . 
+            " / " . $row['amount_needed'] . ' ' . $row['measure'] . " <br> <br>\r\n" .
             "<form action='add.php' method='post'>\r\nAdd:&nbsp;\r\n" . 
-            "<input type='number' min='1' name='amount' required>\r\n<input type='submit'>\r\n" .
+            "<input type='number' min='1' name='amount' required>\r\n<input type='submit' value='ADD'>\r\n" .
             "<input type='hidden' value='" . $row['amount'] . "' name='current'>\r\n" .
             "<input type='hidden' value='" . $row['type'] . "' name='type'>\r\n" .
             "<input type='hidden' value='" . $table . "' name='table'>\r\n</form>\r\n\r\n" .
             
             "<form action='sub.php' method='post'>\r\nSub:&nbsp;\r\n" . 
             "<input type='number' min='1' max='" . $row['amount'] . "' name='amount' required>\r\n" . 
-            "<input type='submit'>\r\n" . 
+            "<input type='submit'value='SUB'>\r\n" . 
             "<input type='hidden' value='" . $row['amount'] . "' name='current'>\r\n" .
             "<input type='hidden' value='" . $row['type'] . "' name='type'>\r\n" .
-            "<input type='hidden' value='" . $table . "' name='table'>\r\n</form>\r\n\r\n";
+            "<input type='hidden' value='" . $table . "' name='table'>\r\n</form>\r\n\r\n" . "<br />";
         
         $color = $row['amount'] / $row['amount_needed'];
         
@@ -88,7 +90,7 @@ return implode("_",$string);
         $typeArray[] = $row['type'];
         $amountArray[] = $row['amount'];
         $colors[] = $color;
-    }
+    }    
 
 //    $list = $list . "<form name='" . $row['type'] . "' action='new.php' method='post'>New Type:&nbsp;" . 
 //            "<input type='number' min='1' max='" . $row['amount'] . "' name='sub'><input type='submit'></form>";
@@ -169,6 +171,7 @@ return implode("_",$string);
 
             //All of the desired options for the pie chart
             var options = {
+                title: "<?php echo $_POST['type']; ?>",
                 legend: 'none',
                 pieSliceText: 'label',
                 pieSliceTextStyle: {color: 'black', fontName: 'Arial', fontSize: 'automatic' },
@@ -197,11 +200,47 @@ return implode("_",$string);
 </head>
 
 <body>
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="home.php">FoodTracker</a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active">
+                        <a href="home.php">
+                            <?php echo $_SESSION[ 'first_name']; ?>
+                        </a>
+                    </li>
+                    <li><a href="http://ec2-54-187-58-229.us-west-2.compute.amazonaws.com/">About Osprey</a>
+                    </li>
+                </ul>
+            </div>
+            <!--/.nav-collapse -->
+        </div>
+    </div>
+<br />
+        <!--Div that will hold the pie chart-->
+    <div class=container>
 
-    <!--Div that will hold the pie chart-->
-    <div id="piechart" class="centeredPie"></div>
-    <div class="right" style="background-color: 'black';"><?php echo $list; ?></div>
-    <a href="home.php" class="topcorner">Back to Home</a>
+        <div class="jumbotron">
+            <div id="piechart" class="centeredPie"></div>
+            <div class="pieText">
+            <br /><br />To add or subtract simply enter amount and click the coresponding button
+                <?php echo "<br /><br />" . $list; ?></div>
+        </div>
+        
+
+        <div class="footer">
+            <p>&copy; OspreySecurity 2014</p>
+        </div>
+    </div> <!-- container -->
 
 </body>
 

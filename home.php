@@ -1,5 +1,5 @@
 <?php session_start();
-    if (!isset($_SESSION[ 'user_id']) && !empty($_SESSION['user_id'])) { 
+    if (!isset($_SESSION[ 'user_id'])) { 
         header( 'Location: index.php');
     } 
 
@@ -247,6 +247,7 @@
 
             //All of the desired options for the pie chart
             var options = {
+                title: "<?php echo $_SESSION['first_name'] . ' ' . $_SESSION['last_name']; ?>'s Food storage chart",
                 legend: 'none',
                 pieSliceText: 'label',
                 pieSliceTextStyle: {color: 'black', fontName: 'Arial', fontSize: 'automatic' },
@@ -342,40 +343,81 @@
         }
     </script>
 
-    <script>
-        function getGrainsColor(grainsSize) {
-            return 'red';
-        }
+  <script>
+    function getGrainsColor(grainsSize) {
+        return 'red';
+    }
 
-        function getFatsColor(fatsSize) {
-            return 'red';
-        }
+    function getFatsColor(fatsSize) {
+        return 'red';
+    }
 
-        function getLegumesColor(legumesSize) {
-            return 'red';
-        }
+    function getLegumesColor(legumesSize) {
+        return 'red';
+    }
 
-        function getSugarsColor(sugarsSize) {
-            return 'red';
-        }
+    function getSugarsColor(sugarsSize) {
+        return 'red';
+    }
 
-        $(document).ready(function () {
-            $('#example').popover({
-                trigger: "hover",
-                placement: "bottom",
-                title: "This is a default title",
-            });
+    $(document).ready(function () {
+        $('#example').popover({
+            trigger: "hover",
+            placement: "bottom",
+            title: "This is a default title",
         });
-    </script>
-
+    });
+</script>
 </head>
 
 <body>
-
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="home.php">FoodTracker</a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active">
+                        <a href="home.php">
+                            <?php echo $_SESSION[ 'first_name']; ?>
+                        </a>
+                    </li>
+                    <li><a href="http://ec2-54-187-58-229.us-west-2.compute.amazonaws.com/">About Osprey</a>
+                    </li>
+                </ul>
+            </div>
+            <!--/.nav-collapse -->
+        </div>
+    </div>
+<br />
     <!--Div that will hold the pie chart-->
+    <div class=container>
 
-    <div id="piechart" class="centeredPie"></div>
+        <div class="jumbotron">
+            <div id="piechart" class="centeredPie"></div>
+            <div class="pieText">
+            <br /><br />Welcome To FoodTracker!
+            <br /><br />To see the status of any section of your catagories hover over it.
+            <br /><br />To edit the contents click on the coresponding slice. 
+            <br /><br />The colors of the slices corespond to how complete each section are,
+            <span class="red">red   </span> &lt; 50%,
+            <span class="yellow">yellow</span> &lt; 100%,
+            <span class="green">green </span> &gt; 100%.
+        </div>
+        </div>
+        
 
+        <div class="footer">
+            <p>&copy; OspreySecurity 2014</p>
+        </div>
+    </div> <!-- container -->
 </body>
 
 </html>
