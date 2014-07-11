@@ -70,7 +70,7 @@ return implode("_",$string);
             "<input type='hidden' value='" . $row['type'] . "' name='type'>\r\n" .
             "<input type='hidden' value='" . $table . "' name='table'>\r\n</form>\r\n\r\n" .
             
-            "<form action='sub.php' method='post'>\r\nSub:&nbsp;\r\n" . 
+            "<form action='sub.php' method='post'>\r\nSubtract:&nbsp;\r\n" . 
             "<input type='number' min='1' max='" . $row['amount'] . "' name='amount' required>\r\n" . 
             "<input type='submit'value='SUB'>\r\n" . 
             "<input type='hidden' value='" . $row['amount'] . "' name='current'>\r\n" .
@@ -213,12 +213,13 @@ return implode("_",$string);
             </div>
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li class="active">
+                    <li style="border-left:1px solid #000;">
                         <a href="home.php">
                             <?php echo $_SESSION[ 'first_name']; ?>
                         </a>
                     </li>
-                    <li><a href="http://ec2-54-187-58-229.us-west-2.compute.amazonaws.com/">About Osprey</a>
+                    <li style="border-left:1px solid #000;">
+                        <a href="http://ec2-54-187-58-229.us-west-2.compute.amazonaws.com/">About Osprey</a>
                     </li>
                 </ul>
             </div>

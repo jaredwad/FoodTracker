@@ -384,12 +384,13 @@
             </div>
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li class="active">
+                    <li style="border-left:1px solid #000;">
                         <a href="home.php">
                             <?php echo $_SESSION[ 'first_name']; ?>
                         </a>
-                    </li>
-                    <li><a href="http://ec2-54-187-58-229.us-west-2.compute.amazonaws.com/">About Osprey</a>
+                    </li >
+                    <li style="border-left:1px solid #000;">
+                        <a href="http://ec2-54-187-58-229.us-west-2.compute.amazonaws.com/">About Osprey</a>
                     </li>
                 </ul>
             </div>
