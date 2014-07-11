@@ -1,13 +1,11 @@
 TEE /var/www/html/FoodTracker/resetDB.txt
 
--- --------------------------------------------------------
-
 -- phpMyAdmin SQL Dump
 -- version 4.1.12
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost:8889
--- Generation Time: Jun 26, 2014 at 01:46 AM
+-- Generation Time: Jul 11, 2014 at 05:40 AM
 -- Server version: 5.5.34
 -- PHP Version: 5.5.10
 
@@ -105,7 +103,7 @@ CREATE TABLE `milk` (
   `type` varchar(30) NOT NULL,
   `amount` int(10) unsigned NOT NULL,
   `amount_needed` int(10) unsigned NOT NULL,
-  `milk` varchar(10) NOT NULL,
+  `measure` varchar(10) NOT NULL,
   PRIMARY KEY (`milk_id`),
   KEY `user_id` (`user_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
@@ -123,7 +121,7 @@ CREATE TABLE `sugars` (
   `type` varchar(30) NOT NULL,
   `amount` int(10) unsigned NOT NULL,
   `amount_needed` int(10) unsigned NOT NULL,
-  `sugars` varchar(10) NOT NULL,
+  `measure` varchar(10) NOT NULL,
   PRIMARY KEY (`sugars_id`),
   KEY `user_id` (`user_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
@@ -165,12 +163,6 @@ CREATE TABLE `water` (
   PRIMARY KEY (`water_id`),
   KEY `user_id` (`user_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
-
---
--- Add base data to database
---
-
-\. insertData.sql
 
 --
 -- Constraints for dumped tables
@@ -217,5 +209,6 @@ ALTER TABLE `sugars`
 --
 ALTER TABLE `water`
   ADD CONSTRAINT `water_user_fk` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
 
 NOTEE
