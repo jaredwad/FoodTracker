@@ -52,7 +52,7 @@ INSERT INTO `legumes` (`legumes_id`, `user_id`, `type`, `amount`, `amount_needed
 -- Dumping data for table `milk`
 --
 
-INSERT INTO `milk` (`milk_id`, `user_id`, `type`, `amount`, `amount_needed`, `milk`) VALUES
+INSERT INTO `milk` (`milk_id`, `user_id`, `type`, `amount`, `amount_needed`, `measure`) VALUES
 (1, 1, 'dry milk', 20, 360, 'lbs'),
 (2, 1, 'other', 5, 78, 'lbs');
 
@@ -60,7 +60,7 @@ INSERT INTO `milk` (`milk_id`, `user_id`, `type`, `amount`, `amount_needed`, `mi
 -- Dumping data for table `sugars`
 --
 
-INSERT INTO `sugars` (`sugars_id`, `user_id`, `type`, `amount`, `amount_needed`, `sugars`) VALUES
+INSERT INTO `sugars` (`sugars_id`, `user_id`, `type`, `amount`, `amount_needed`, `measure`) VALUES
 (1, 1, 'sugar', 100, 240, 'lbs'),
 (2, 1, 'fruit drink powdered', 5, 36, 'lbs');
 
