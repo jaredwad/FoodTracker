@@ -25,6 +25,8 @@ USE `FoodTracker`;
 --
 SELECT "DROP" AS "TABLES";
 
+SET FOREIGN_KEY_CHECKS=0;
+
 DROP TABLE IF EXISTS `cooking_essentials`;
 DROP TABLE IF EXISTS `fats_and_oils`;
 DROP TABLE IF EXISTS `grains`;
@@ -33,6 +35,8 @@ DROP TABLE IF EXISTS `milk`;
 DROP TABLE IF EXISTS `sugars`;
 DROP TABLE IF EXISTS `user`;
 DROP TABLE IF EXISTS `water`;
+
+SET FOREIGN_KEY_CHECKS=1;
 
 -- --------------------------------------------------------
 
@@ -227,5 +231,7 @@ ALTER TABLE `sugars`
 ALTER TABLE `water`
   ADD CONSTRAINT `water_user_fk` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
+
+\. insertData.sql;
 
 NOTEE
