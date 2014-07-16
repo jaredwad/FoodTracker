@@ -59,11 +59,12 @@ return implode("_",$string);
     $typeArray = array();
     $amountArray = array();
     $colors = array();
+    
     while($row = mysqli_fetch_array($set)) {
         $totalSize  += $row['amount'];
         $neededSize += $row['amount_needed'];
-        $list = $list . $row['type'] . " <br> " . $row['amount'] . ' ' . $row['measure'] . 
-            " / " . $row['amount_needed'] . ' ' . $row['measure'] . " <br> <br>\r\n" .
+        $list = $list . "<b>" . $row['type'] . " <br> " . $row['amount'] . ' ' . $row['measure'] . 
+            " / " . $row['amount_needed'] . ' ' . $row['measure'] . " </b> <br> <br>\r\n" .
             "<form action='add.php' method='post'>\r\nAdd:&nbsp;\r\n" . 
             "<input type='number' min='1' name='amount' required>\r\n<input type='submit' value='ADD'>\r\n" .
             "<input type='hidden' value='" . $row['amount'] . "' name='current'>\r\n" .
@@ -86,11 +87,13 @@ return implode("_",$string);
         else
             $color = 'green';
         
-        $data[] = $row;
+        $data[$row['type']] = $row;
         $typeArray[] = $row['type'];
         $amountArray[] = $row['amount'];
         $colors[] = $color;
     }    
+
+    $list = $list . "\r\n<br> <br> <a href='home.php'> Back to home </a>"
 
 //    $list = $list . "<form name='" . $row['type'] . "' action='new.php' method='post'>New Type:&nbsp;" . 
 //            "<input type='number' min='1' max='" . $row['amount'] . "' name='sub'><input type='submit'></form>";

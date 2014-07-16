@@ -33,6 +33,8 @@
             " / " . $row['amount_needed'] . $row['measure'] . " <br> <br>";
     }
 
+    $cookingList = "<div style='border-bottom:1px solid #000;'>Cooking Essentials</div><br>" . $cookingList;
+
 //
 // ====================== fats_and_oils Query ======================
 //
@@ -53,6 +55,8 @@
         $fatsList = $fatsList . $row['type'] . " <br> " . $row['amount'] . $row['measure'] . 
             " / " . $row['amount_needed'] . $row['measure'] . " <br> <br> ";
     }
+
+    $fatsList = "<div style='border-bottom:1px solid #000;'>Fats and Oils</div><br>" . $fatsList;
 
 //
 // ====================== grains Query ======================
@@ -75,6 +79,8 @@
             " / " . $row['amount_needed'] . $row['measure'] . " <br> <br>";
     }
 
+    $grainsList = "<div style='border-bottom:1px solid #000;'>Grains</div><br>" . $grainsList;
+
 //
 // ====================== legumes Query ======================
 //
@@ -95,6 +101,8 @@
         $legumesList = $legumesList . $row['type'] . " <br> " . $row['amount'] . $row['measure'] . 
             " / " . $row['amount_needed'] . $row['measure'] . " <br> <br>";
     }
+
+    $legumesList = "<div style='border-bottom:1px solid #000;'>Legumes</div><br>" . $legumesList;
 
 //
 // ====================== milk Query ======================
@@ -117,6 +125,8 @@
             " / " . $row['amount_needed'] . $row['measure'] . " <br> <br>";
     }
 
+    $milkList = "<div style='border-bottom:1px solid #000;'>Milk</div><br>" . $milkList;
+
 //
 // ====================== sugars Query ======================
 //
@@ -137,6 +147,8 @@
         $sugarsList = $sugarsList . $row['type'] . " <br> " . $row['amount'] . $row['measure'] . 
             " / " . $row['amount_needed'] . $row['measure'] . " <br> <br>";
     }
+
+    $sugarsList = "<div style='border-bottom:1px solid #000;'>Sugar</div><br>" . $sugarsList;
 
 //
 // ====================== water Query ======================
@@ -159,6 +171,8 @@
         $waterList = $waterList . $row['type'] . " <br> " . $row['amount'] . $row['measure'] . 
             " / " . $row['amount_needed'] . $row['measure'] . " <br> <br>";
     }
+
+    $waterList = "<div style='border-bottom:1px solid #000;'>Water</div><br>" . $waterList;
 ?>
 
 
