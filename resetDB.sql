@@ -23,7 +23,7 @@ USE `FoodTracker`;
 --
 -- Drop all tables
 --
-SELECT "DROP" from "TABLES";
+SELECT "DROP" AS "TABLES";
 
 DROP TABLE IF EXISTS `cooking_essentials`;
 DROP TABLE IF EXISTS `fats_and_oils`;
@@ -39,6 +39,7 @@ DROP TABLE IF EXISTS `water`;
 --
 -- Table structure for table `cooking_essentials`
 --
+SELECT "CREATE" AS "cooking_essentials";
 
 CREATE TABLE `cooking_essentials` (
   `cooking_essentials_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -56,6 +57,7 @@ CREATE TABLE `cooking_essentials` (
 --
 -- Table structure for table `fats_and_oils`
 --
+SELECT "CREATE" AS "fats_and_oils";
 
 CREATE TABLE `fats_and_oils` (
   `fats_and_oils_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -73,6 +75,7 @@ CREATE TABLE `fats_and_oils` (
 --
 -- Table structure for table `grains`
 --
+SELECT "CREATE" AS "grains";
 
 CREATE TABLE `grains` (
   `grain_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -90,6 +93,7 @@ CREATE TABLE `grains` (
 --
 -- Table structure for table `legumes`
 --
+SELECT "CREATE" AS "legumes";
 
 CREATE TABLE `legumes` (
   `legumes_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -107,6 +111,7 @@ CREATE TABLE `legumes` (
 --
 -- Table structure for table `milk`
 --
+SELECT "CREATE" AS "milk";
 
 CREATE TABLE `milk` (
   `milk_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -124,6 +129,7 @@ CREATE TABLE `milk` (
 --
 -- Table structure for table `sugars`
 --
+SELECT "CREATE" AS "sugars";
 
 CREATE TABLE `sugars` (
   `sugars_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -141,6 +147,7 @@ CREATE TABLE `sugars` (
 --
 -- Table structure for table `user`
 --
+SELECT "CREATE" AS "user";
 
 CREATE TABLE `user` (
   `user_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -160,6 +167,7 @@ CREATE TABLE `user` (
 --
 -- Table structure for table `water`
 --
+SELECT "CREATE" AS "water";
 
 CREATE TABLE `water` (
   `water_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -175,6 +183,7 @@ CREATE TABLE `water` (
 --
 -- Constraints for dumped tables
 --
+SELECT "Constraints" AS "Constraints";
 
 --
 -- Constraints for table `cooking_essentials`
