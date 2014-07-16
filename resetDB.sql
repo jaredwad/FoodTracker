@@ -184,6 +184,16 @@ CREATE TABLE `water` (
   KEY `user_id` (`user_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
+-- --------------------------------------------------------
+
+--
+-- Insert data
+--
+
+\. insertData.sql
+
+-- --------------------------------------------------------
+
 --
 -- Constraints for dumped tables
 --
@@ -230,8 +240,5 @@ ALTER TABLE `sugars`
 --
 ALTER TABLE `water`
   ADD CONSTRAINT `water_user_fk` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
-
-\. insertData.sql;
 
 NOTEE
