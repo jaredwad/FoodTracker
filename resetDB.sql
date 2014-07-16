@@ -23,6 +23,8 @@ USE `FoodTracker`;
 --
 -- Drop all tables
 --
+SELECT "DROP" from "TABLES";
+
 DROP TABLE IF EXISTS `cooking_essentials`;
 DROP TABLE IF EXISTS `fats_and_oils`;
 DROP TABLE IF EXISTS `grains`;
