@@ -189,6 +189,7 @@ CREATE TABLE `water` (
 --
 -- Insert data
 --
+SELECT "INSERT" AS "Data";
 
 \. insertData.sql
 
