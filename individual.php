@@ -63,8 +63,8 @@ return implode("_",$string);
     while($row = mysqli_fetch_array($set)) {
         $totalSize  += $row['amount'];
         $neededSize += $row['amount_needed'];
-        $list = $list . "<b>" . $row['type'] . " <br> " . $row['amount'] . ' ' . $row['measure'] . 
-            " / " . $row['amount_needed'] . ' ' . $row['measure'] . " </b> <br> <br>\r\n" .
+        $list = $list . "<b>" . $row['type'] . " <br> Current: " . $row['amount'] . ' ' . $row['measure'] . 
+            " <br>Storage Goal: " . $row['amount_needed'] . ' ' . $row['measure'] . " </b> <br> <br>\r\n" .
             "<form action='add.php' method='post'>\r\nAdd:&nbsp;\r\n" . 
             "<input type='number' min='1' name='amount' required>\r\n<input type='submit' value='ADD'>\r\n" .
             "<input type='hidden' value='" . $row['amount'] . "' name='current'>\r\n" .
@@ -80,7 +80,7 @@ return implode("_",$string);
         
         $color = $row['amount'] / $row['amount_needed'];
         
-        if ($color <= .75)
+        if ($color <= .50)
             $color = 'red';
         else if ($color < 1)
             $color = 'yellow';
@@ -93,7 +93,7 @@ return implode("_",$string);
         $colors[] = $color;
     }    
 
-    $list = $list . "\r\n<br> <br> <a href='home.php'> Back to home </a>"
+//    $list = $list . "\r\n<br> <br> <a href='home.php'> Back to home </a>"
 
 //    $list = $list . "<form name='" . $row['type'] . "' action='new.php' method='post'>New Type:&nbsp;" . 
 //            "<input type='number' min='1' max='" . $row['amount'] . "' name='sub'><input type='submit'></form>";
@@ -212,14 +212,12 @@ return implode("_",$string);
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="home.php">FoodTracker</a>
+                <a class="navbar-brand" href="home.php">Back to Home</a>
             </div>
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li style="border-left:1px solid #000;">
-                        <a href="home.php">
-                            <?php echo $_SESSION[ 'first_name']; ?>
-                        </a>
+                        <a href="home.php"> My Profile</a>
                     </li>
                     <li style="border-left:1px solid #000;">
                         <a href="http://ec2-54-187-58-229.us-west-2.compute.amazonaws.com/">About Osprey</a>
@@ -236,7 +234,7 @@ return implode("_",$string);
         <div class="jumbotron">
             <div id="piechart" class="centeredPie"></div>
             <div class="pieText">
-            <br /><br />To add or subtract simply enter amount and click the coresponding button
+            <br /><br />To add or subtract storage quantities, enter amount desired in specified units and click the coresponding button
                 <?php echo "<br /><br />" . $list; ?></div>
         </div>
         

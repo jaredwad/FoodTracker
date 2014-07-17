@@ -25,6 +25,7 @@
 .pieText {
     height: 500px;
 text-align: center;
+    float: auto;
 }
 .test {
     color: 'black';

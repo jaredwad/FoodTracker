@@ -261,7 +261,7 @@
 
             //All of the desired options for the pie chart
             var options = {
-                title: "<?php echo $_SESSION['first_name'] . ' ' . $_SESSION['last_name']; ?>'s Food storage chart",
+                title: "<?php echo $_SESSION['first_name'] . ' ' . $_SESSION['last_name']; ?>'s Food Storage Chart",
                 legend: 'none',
                 pieSliceText: 'label',
                 pieSliceTextStyle: {color: 'black', fontName: 'Arial', fontSize: 'automatic' },
@@ -312,7 +312,7 @@
         }
         
         function getColor(percent) {
-            if (percent <= .75)
+            if (percent <= .50)
                 return 'red';
             else if (percent < 1)
                 return 'yellow';
@@ -399,9 +399,7 @@
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li style="border-left:1px solid #000;">
-                        <a href="home.php">
-                            <?php echo $_SESSION[ 'first_name']; ?>
-                        </a>
+                        <a href="home.php">My Profile</a>
                     </li >
                     <li style="border-left:1px solid #000;">
                         <a href="http://ec2-54-187-58-229.us-west-2.compute.amazonaws.com/">About Osprey</a>
@@ -419,12 +417,12 @@
             <div id="piechart" class="centeredPie"></div>
             <div class="pieText">
             <br /><br />Welcome To FoodTracker!
-            <br /><br />To see the status of any section of your catagories hover over it.
-            <br /><br />To edit the contents click on the coresponding slice. 
-            <br /><br />The colors of the slices corespond to how complete each section are,
-            <span class="red">red   </span> &lt; 50%,
-            <span class="yellow">yellow</span> &lt; 100%,
-            <span class="green">green </span> &gt; 100%.
+            <br /><br />To see the status of any category of your food storage hover the cursor over the corresponding pie slice.
+            <br /><br />To edit the contents of the category click on the corresponding pie slice. The amounts displayed are in terms of current storage versus your storage goal.
+            <br /><br />The colors of the slices corespond to the completeness of each category,
+            <span class="red">red   </span> 50% or less,
+            <span class="yellow">yellow</span> between 50% and 100%,
+            <span class="green">green </span> 100% or more.
         </div>
         </div>
         

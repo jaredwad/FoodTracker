@@ -22,8 +22,8 @@ SET time_zone = "+00:00";
 SELECT "INSERT" AS "cooking_essentials";
 
 INSERT INTO `cooking_essentials` (`cooking_essentials_id`, `user_id`, `type`, `amount`, `amount_needed`, `measure`) VALUES
-(1, 1, 'baking powder', 6, 6, 'lbs'),
-(2, 1, 'yeast', 4, 3, 'lbs');
+(1, 1, 'Baking Powder', 6, 6, 'lbs'),
+(2, 1, 'Yeast', 4, 3, 'lbs');
 
 --
 -- Dumping data for table `fats_and_oils`
@@ -31,8 +31,8 @@ INSERT INTO `cooking_essentials` (`cooking_essentials_id`, `user_id`, `type`, `a
 SELECT "INSERT" AS "fats_and_oils";
 
 INSERT INTO `fats_and_oils` (`fats_and_oils_id`, `user_id`, `type`, `amount`, `amount_needed`, `measure`) VALUES
-(1, 1, 'shortening', 13, 24, 'lbs'),
-(2, 1, 'peanut butter', 24, 24, 'lbs');
+(1, 1, 'Shortening', 13, 24, 'lbs'),
+(2, 1, 'Peanut Butter', 24, 24, 'lbs');
 
 --
 -- Dumping data for table `grains`
@@ -49,8 +49,8 @@ INSERT INTO `grains` (`grain_id`, `user_id`, `type`, `amount`, `amount_needed`, 
 SELECT "INSERT" AS "legumes";
 
 INSERT INTO `legumes` (`legumes_id`, `user_id`, `type`, `amount`, `amount_needed`, `measure`) VALUES
-(1, 1, 'lentils', 10, 30, 'lbs'),
-(2, 1, 'dry soup mix', 20, 30, 'lbs');
+(1, 1, 'Lentils', 10, 30, 'lbs'),
+(2, 1, 'Dry soup Mix', 20, 30, 'lbs');
 
 --
 -- Dumping data for table `milk`
@@ -58,8 +58,8 @@ INSERT INTO `legumes` (`legumes_id`, `user_id`, `type`, `amount`, `amount_needed
 SELECT "INSERT" AS "milk";
 
 INSERT INTO `milk` (`milk_id`, `user_id`, `type`, `amount`, `amount_needed`, `measure`) VALUES
-(1, 1, 'dry milk', 20, 360, 'lbs'),
-(2, 1, 'other', 5, 78, 'lbs');
+(1, 1, 'Dry Milk', 20, 360, 'lbs'),
+(2, 1, 'Other', 5, 78, 'lbs');
 
 --
 -- Dumping data for table `sugars`
@@ -67,8 +67,8 @@ INSERT INTO `milk` (`milk_id`, `user_id`, `type`, `amount`, `amount_needed`, `me
 SELECT "INSERT" AS "sugars";
 
 INSERT INTO `sugars` (`sugars_id`, `user_id`, `type`, `amount`, `amount_needed`, `measure`) VALUES
-(1, 1, 'sugar', 100, 240, 'lbs'),
-(2, 1, 'fruit drink powdered', 5, 36, 'lbs');
+(1, 1, 'Sugar', 100, 240, 'lbs'),
+(2, 1, 'Powdered Fruit Drink', 5, 36, 'lbs');
 
 --
 -- Dumping data for table `user`
@@ -84,7 +84,7 @@ INSERT INTO `user` (`user_id`, `first_name`, `middle_name`, `last_name`, `email`
 SELECT "INSERT" AS "water";
 
 INSERT INTO `water` (`water_id`, `user_id`, `type`, `amount`, `amount_needed`, `measure`) VALUES
-(1, 1, 'water', 84, 84, 'gals'),
-(2, 1, 'bleach', 6, 6, 'gals');
+(1, 1, 'Water', 84, 84, 'gals'),
+(2, 1, 'Bleach', 6, 6, 'gals');
 
 NOTEE
