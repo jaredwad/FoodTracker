@@ -212,6 +212,16 @@
         google.setOnLoadCallback(drawChart);
 
         function drawChart() {
+            
+            if(! <?php echo $grainsTotalSize + $fatsTotalSize + $legumesTotalSize + $sugarsTotalSize + $milkTotalSize + $cookingTotalSize + $waterTotalSize?> ) {
+               $(document).ready( function() {
+                $('#piechart').text('You currently have no data in your chart. \r\n Lets add some!');
+                $('#piechart').css("text-align","center");
+            });
+         
+            return;
+            
+        }
 
             /*****  Get all the variables needed for this chart *****/
 
@@ -262,8 +272,10 @@
             //All of the desired options for the pie chart
             var options = {
                 title: "<?php echo $_SESSION['first_name'] . ' ' . $_SESSION['last_name']; ?>'s Food Storage Chart",
-                legend: 'none',
-                pieSliceText: 'label',
+                legend: { position:'labeled', textStyle: {color:'black', fontSize:'10'}},
+//                pieSliceText: 'label',
+                pieSliceText: 'none',
+                sliceVisibilityThreshold: 1/1000,
                 pieSliceTextStyle: {color: 'black', fontName: 'Arial', fontSize: 'automatic' },
                 colors: [grainsColor, fatsColor, legumesColor, sugarsColor, milkColor, cookingColor, waterColor],
                 pieSliceBorderColor: 'black',

@@ -65,18 +65,18 @@ return implode("_",$string);
         $neededSize += $row['amount_needed'];
         $list = $list . "<b>" . $row['type'] . " <br> Current: " . $row['amount'] . ' ' . $row['measure'] . 
             " <br>Storage Goal: " . $row['amount_needed'] . ' ' . $row['measure'] . " </b> <br> <br>\r\n" .
-            "<form action='add.php' method='post'>\r\nAdd:&nbsp;\r\n" . 
-            "<input type='number' min='1' name='amount' required>\r\n<input type='submit' value='ADD'>\r\n" .
+            "<form action='add.php' method='post'>\r\nChange:&nbsp;\r\n" . 
+            "<input type='number' name='amount' required>\r\n<input type='submit' value='Submit'>\r\n" .
             "<input type='hidden' value='" . $row['amount'] . "' name='current'>\r\n" .
             "<input type='hidden' value='" . $row['type'] . "' name='type'>\r\n" .
-            "<input type='hidden' value='" . $table . "' name='table'>\r\n</form>\r\n\r\n" .
+            "<input type='hidden' value='" . $table . "' name='table'>\r\n</form>\r\n\r\n" ;
             
-            "<form action='sub.php' method='post'>\r\nSubtract:&nbsp;\r\n" . 
-            "<input type='number' min='1' max='" . $row['amount'] . "' name='amount' required>\r\n" . 
-            "<input type='submit'value='SUB'>\r\n" . 
-            "<input type='hidden' value='" . $row['amount'] . "' name='current'>\r\n" .
-            "<input type='hidden' value='" . $row['type'] . "' name='type'>\r\n" .
-            "<input type='hidden' value='" . $table . "' name='table'>\r\n</form>\r\n\r\n" . "<br />";
+//            "<form action='sub.php' method='post'>\r\nSubtract:&nbsp;\r\n" . 
+//            "<input type='number' min='1' max='" . $row['amount'] . "' name='amount' required>\r\n" . 
+//            "<input type='submit'value='SUB'>\r\n" . 
+//            "<input type='hidden' value='" . $row['amount'] . "' name='current'>\r\n" .
+//            "<input type='hidden' value='" . $row['type'] . "' name='type'>\r\n" .
+//            "<input type='hidden' value='" . $table . "' name='table'>\r\n</form>\r\n\r\n" . "<br />";
         
         $color = $row['amount'] / $row['amount_needed'];
         
@@ -121,7 +121,7 @@ return implode("_",$string);
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
+    <meta name="description" content="Food storage, Jared Wadsworth, Osprey, FoodTracker">
     <meta name="author" content="Jared Wadsworth">
     <link rel="shortcut icon" href="images/wheat-icon.ico">
     <title>FoodTracker <?php echo $_POST['type']; ?></title>
@@ -151,16 +151,23 @@ return implode("_",$string);
 
         function drawChart() {
 
+            if(! <?php echo $totalSize; ?> ) {
+               $(document).ready( function() {
+                $('#piechart').text('You currently have no data in your chart. \r\n Lets add some!');
+                $('#piechart').css("text-align","center");
+            });
+               
+               return;
+            }
+            
             /*****  Get all the variables needed for this chart *****/
             //Global variable!!! Good thing Brother Helfrich won't be looking at my code
             data = google.visualization.arrayToDataTable([
       ['Food', 'Percentage of total storage (lbs)'],
-    <?php  
-//        while (
+    <?php
 
     for ($i = 0; $i < count($typeArray); ++$i) {
         echo "['" . $typeArray[$i] . "'," . $amountArray[$i] . "],\r\n";
-//        print $array[$i];
     }
     
     ?>
@@ -175,8 +182,9 @@ return implode("_",$string);
             //All of the desired options for the pie chart
             var options = {
                 title: "<?php echo $_POST['type']; ?>",
-                legend: 'none',
-                pieSliceText: 'label',
+                legend: { position:'labeled', textStyle: {color:'black', fontSize:'10'}},
+                sliceVisibilityThreshold: 1/1000,
+                pieSliceText: 'none',
                 pieSliceTextStyle: {color: 'black', fontName: 'Arial', fontSize: 'automatic' },
                 <?php 
                     

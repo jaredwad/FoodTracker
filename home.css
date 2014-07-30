@@ -8,7 +8,8 @@ It destroys the interactible nature of the pie chart */
     /*half the image height*/
 /*    margin-left: -300px;
     /*half the image width*/
-    width: 600px;
+/*    width: 600px;  */
+    width: 700px;
     height: 500px;
     float: left;
 }
