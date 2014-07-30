@@ -190,17 +190,11 @@ function lcallfirst($string) {
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="home.php">Back to Home</a>
-            </div>
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
+                    <li>
+                        <a class="navbar-brand" href="home.php">Back to Home</a>
+                    </li>
                     <li style="border-left:1px solid #000;">
                         <a href="home.php"> My Profile</a>
                     </li>
