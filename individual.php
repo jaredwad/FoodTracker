@@ -1,27 +1,33 @@
 <?php session_start();
 
-function lcallfirst($string)
-{
-$string=explode("_",$string);
-$i=0;
-while($i<count($string))
-{$string[$i]=lcfirst($string[$i]);
-$i++;}
-return implode("_",$string);
+function lcallfirst($string) {
+
+    $string=explode("_",$string);
+    $i=0;
+    while($i<count($string)) {
+        $string[$i]=lcfirst($string[$i]);
+        $i++;
+    }
+    
+    return implode("_",$string);
 }
 
 /*========== Begin main php code =========*/
 
     if (!function_exists('lcfirst')) {
 
-        function lcfirst($str)
-        {
+        function lcfirst($str) {
+
             $str = is_string($str) ? $str : '';
+
             if(mb_strlen($str) > 0) {
+
                 for ($i=0; $i<=mb_strlen($str); $i++) {
+                    
                     $str[$i] = mb_strtolower($str[$i]);
                 } 
             }
+
             return $str;
         }
     }
@@ -45,8 +51,6 @@ return implode("_",$string);
 
     $query = "SELECT * FROM " . lcallfirst($table) . " WHERE user_id ='" . $_SESSION['user_id'] . "'";
 
-//   echo $query;
-                
     $set = mysqli_query($con, $query);
     $totalSize = 0;
     $neededSize = 0;
@@ -71,13 +75,6 @@ return implode("_",$string);
             "<input type='hidden' value='" . $row['type'] . "' name='type'>\r\n" .
             "<input type='hidden' value='" . $table . "' name='table'>\r\n</form>\r\n\r\n" ;
             
-//            "<form action='sub.php' method='post'>\r\nSubtract:&nbsp;\r\n" . 
-//            "<input type='number' min='1' max='" . $row['amount'] . "' name='amount' required>\r\n" . 
-//            "<input type='submit'value='SUB'>\r\n" . 
-//            "<input type='hidden' value='" . $row['amount'] . "' name='current'>\r\n" .
-//            "<input type='hidden' value='" . $row['type'] . "' name='type'>\r\n" .
-//            "<input type='hidden' value='" . $table . "' name='table'>\r\n</form>\r\n\r\n" . "<br />";
-        
         $color = $row['amount'] / $row['amount_needed'];
         
         if ($color <= .50)
@@ -92,25 +89,6 @@ return implode("_",$string);
         $amountArray[] = $row['amount'];
         $colors[] = $color;
     }    
-
-//    $list = $list . "\r\n<br> <br> <a href='home.php'> Back to home </a>"
-
-//    $list = $list . "<form name='" . $row['type'] . "' action='new.php' method='post'>New Type:&nbsp;" . 
-//            "<input type='number' min='1' max='" . $row['amount'] . "' name='sub'><input type='submit'></form>";
-
-//    $data = array($name => $customer);
-//    echo json_encode($data);
-//    echo json_encode($array);
-
-//    echo $list;
-    
-//    while ($row = mysql_fetch_assoc($set)) {
-//        echo $row['user_id'];
-//        $customer[] = $row;
-//    }
-//
-//    $struct = array("Customer" => $customer);
-//    print json_encode($struct);
 
 ?>
 
