@@ -202,6 +202,9 @@
 
     <!-- Latest compiled and minified JavaScript -->
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    
+    <!-- Common javascript functions in the project -->
+    <script type="text/javascript" src="js/common.js"></script>
 
     <!--Load the AJAX API-->
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
@@ -306,18 +309,7 @@
 
             chart.draw(data, options);
         }
-        
-        function goToIndividual(foodType) {
-            var form = $('<form action="' + getURL() + '" method="post">' +
-                         '<input type="text" name="type" value="' + foodType + '" />' +
-                         '</form>');
-            $(form).submit();
-        }
-        
-        function getURL() {
-            return document.URL.substr(0, document.URL.lastIndexOf("/") + 1) + "individual.php"
-        }
-        
+
         function getColor(percent) {
             if (percent <= .50)
                 return 'red';

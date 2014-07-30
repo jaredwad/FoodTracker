@@ -119,6 +119,9 @@ function lcallfirst($string) {
     <!-- Latest compiled and minified JavaScript -->
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     
+    <!-- Common javascript functions in the project -->
+    <script type="text/javascript" src="js/common.js"></script>
+    
     <!--Load the AJAX API-->
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <script type="text/javascript">
@@ -147,9 +150,9 @@ function lcallfirst($string) {
     for ($i = 0; $i < count($typeArray); ++$i) {
         echo "['" . $typeArray[$i] . "'," . $amountArray[$i] . "],\r\n";
     }
-    
+
     ?>
-      
+
     ]);
 
             //Global variable!!! Good thing Brother Helfrich won't be looking at my code
@@ -178,25 +181,10 @@ function lcallfirst($string) {
                 pieStartAngle: 30,
             };
 
-            
-
             chart.draw(data, options);
         }
-
-        
-        function goToIndividual(foodType) {
-            var form = $('<form action="' + getURL() + '" method="post">' +
-                         '<input type="text" name="type" value="' + foodType + '" />' +
-                         '</form>');
-            $(form).submit();
-        }
-        
-        function getURL() {
-            return document.URL.substr(0, document.URL.lastIndexOf("/") + 1) + "individual.php"
-        }
-        
     </script>
-    
+
 </head>
 
 <body>
@@ -243,7 +231,8 @@ function lcallfirst($string) {
         <div class="jumbotron">
             <div id="piechart" class="centeredPie"></div>
             <div class="pieText">
-            <br /><br />To add or subtract storage quantities, enter amount desired in specified units and click the coresponding button
+            <br /><br />To add or subtract storage quantities,
+                        enter amount desired in specified units and click the coresponding submit button
                 <?php echo "<br /><br />" . $list; ?></div>
         </div>
         
