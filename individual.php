@@ -206,6 +206,17 @@ return implode("_",$string);
         }
 
         
+        function goToIndividual(foodType) {
+            var form = $('<form action="' + getURL() + '" method="post">' +
+                         '<input type="text" name="type" value="' + foodType + '" />' +
+                         '</form>');
+            $(form).submit();
+        }
+        
+        function getURL() {
+            return document.URL.substr(0, document.URL.lastIndexOf("/") + 1) + "individual.php"
+        }
+        
     </script>
     
 </head>
@@ -226,6 +237,18 @@ return implode("_",$string);
                 <ul class="nav navbar-nav">
                     <li style="border-left:1px solid #000;">
                         <a href="home.php"> My Profile</a>
+                    </li>
+                    <li style="border-left:1px solid #000;">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Categories<span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li role="presentation"><a href="javascript:goToIndividual('Grains')">Grains</a></li>
+                            <li role="presentation"><a href="javascript:goToIndividual('Fats and Oils')">Fats and Oils</a></li>
+                            <li role="presentation"><a href="javascript:goToIndividual('Legumes')">Legumes</a></li>
+                            <li role="presentation"><a href="javascript:goToIndividual('Sugars')">Sugars</a></li>
+                            <li role="presentation"><a href="javascript:goToIndividual('Milk')">Milk</a></li>
+                            <li role="presentation"><a href="javascript:goToIndividual('Cooking Essentials')">Cooking Essentials</a></li>
+                            <li role="presentation"><a href="javascript:goToIndividual('Water')">Water</a></li>
+                        </ul>    
                     </li>
                     <li style="border-left:1px solid #000;">
                         <a href="http://ec2-54-187-58-229.us-west-2.compute.amazonaws.com/">About Osprey</a>

@@ -213,15 +213,17 @@
 
         function drawChart() {
             
-            if(! <?php echo $grainsTotalSize + $fatsTotalSize + $legumesTotalSize + $sugarsTotalSize + $milkTotalSize + $cookingTotalSize + $waterTotalSize?> ) {
+            if(! <?php echo $grainsTotalSize + $fatsTotalSize    + $legumesTotalSize + $sugarsTotalSize +
+                            $milkTotalSize   + $cookingTotalSize + $waterTotalSize?> )
+            {
                $(document).ready( function() {
                 $('#piechart').text('You currently have no data in your chart. \r\n Lets add some!');
                 $('#piechart').css("text-align","center");
-            });
+                });
          
-            return;
+                return;
             
-        }
+            }
 
             /*****  Get all the variables needed for this chart *****/
 
@@ -273,7 +275,6 @@
             var options = {
                 title: "<?php echo $_SESSION['first_name'] . ' ' . $_SESSION['last_name']; ?>'s Food Storage Chart",
                 legend: { position:'labeled', textStyle: {color:'black', fontSize:'10'}},
-//                pieSliceText: 'label',
                 pieSliceText: 'none',
                 sliceVisibilityThreshold: 1/1000,
                 pieSliceTextStyle: {color: 'black', fontName: 'Arial', fontSize: 'automatic' },
@@ -299,27 +300,21 @@
                 e = chart.getSelection();
                 $(".google-visualization-tooltip").html(HTMLContent(e[0]));
                 
-                var url = getURL(e[0]);
-                var form = $('<form action="' + url + '" method="post">' +
-                             '<input type="text" name="type" value="' + data.getFormattedValue(e[0].row, 0) + '" />' +
-                             '</form>');
-                $('body').append(form);  // This line is not necessary
-                $(form).submit();
+                goToIndividual(data.getFormattedValue(e[0].row, 0));
                 
-//                console.log(url);
-//                window.location = getURL(e[0]);
             });
 
             chart.draw(data, options);
         }
         
-        function getURL(e) {
-            var FoodType = data.getFormattedValue(e.row, 0);
-            
-            var url = document.URL.substr(0, document.URL.lastIndexOf("/") + 1);
-            
-//            return url + FoodType.toLowerCase().replace(/\s+/g, '') + ".php";
-            
+        function goToIndividual(foodType) {
+            var form = $('<form action="' + getURL() + '" method="post">' +
+                         '<input type="text" name="type" value="' + foodType + '" />' +
+                         '</form>');
+            $(form).submit();
+        }
+        
+        function getURL() {
             return document.URL.substr(0, document.URL.lastIndexOf("/") + 1) + "individual.php"
         }
         
@@ -337,7 +332,6 @@
             var content  = getContent(FoodType);
             var num      = (content.split("<br>").length - 1) * 10;
 
-//            $(".google-visualization-tooltip").style("height: 800px");
             return '<div class="test">' + content + '</div>';
         }
         
@@ -413,6 +407,18 @@
                     <li style="border-left:1px solid #000;">
                         <a href="home.php">My Profile</a>
                     </li >
+                    <li style="border-left:1px solid #000;">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Categories<span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li role="presentation"><a href="javascript:goToIndividual('Grains')">Grains</a></li>
+                            <li role="presentation"><a href="javascript:goToIndividual('Fats and Oils')">Fats and Oils</a></li>
+                            <li role="presentation"><a href="javascript:goToIndividual('Legumes')">Legumes</a></li>
+                            <li role="presentation"><a href="javascript:goToIndividual('Sugars')">Sugars</a></li>
+                            <li role="presentation"><a href="javascript:goToIndividual('Milk')">Milk</a></li>
+                            <li role="presentation"><a href="javascript:goToIndividual('Cooking Essentials')">Cooking Essentials</a></li>
+                            <li role="presentation"><a href="javascript:goToIndividual('Water')">Water</a></li>
+                        </ul>    
+                    </li>
                     <li style="border-left:1px solid #000;">
                         <a href="http://ec2-54-187-58-229.us-west-2.compute.amazonaws.com/">About Osprey</a>
                     </li>
