@@ -92,14 +92,13 @@
 <body>
 
     <div class="container">
-
         <form class="form-signin" role="form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
             <h2 class="form-signin-heading">Please Sign In</h2>
             <input name="email" type="email" class="form-control" placeholder="Email address" required autofocus>
             <input name="pass" type="password" class="form-control" placeholder="Password" required>
             <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
         </form>
-
+    </div>
 </body>
 
 </html>

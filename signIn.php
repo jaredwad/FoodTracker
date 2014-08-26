@@ -1,5 +1,5 @@
 
-<html><body></body></html>
+<html><body>
 
 <?php
 $email = $_POST["email"];

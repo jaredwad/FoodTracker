@@ -211,6 +211,9 @@ function lcallfirst($string) {
                         </ul>    
                     </li>
                     <li style="border-left:1px solid #000;">
+                        <a href="logout.php">Log Out</a>
+                    </li>
+                    <li style="border-left:1px solid #000;">
                         <a href="http://ec2-54-187-58-229.us-west-2.compute.amazonaws.com/">About Osprey</a>
                     </li>
                 </ul>

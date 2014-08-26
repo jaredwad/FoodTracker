@@ -1,12 +1,13 @@
 <?php session_start();
 
-    if (!isset($_SESSION[ 'user_id']) && !empty($_SESSION['user_id'])) { 
+    if (!isset($_SESSION['user_id']) && !empty($_SESSION['user_id'])) { 
         header( 'Location: index.php');
     } 
 
     $amount = $_POST['amount'] + $_POST['current'];
     $type   = strtolower($_POST['type']);
     $table  = strtolower($_POST['table']);
+    $id     = $_SESSION['user_id'];
 
     // Establish database connection
     $con = mysqli_connect("localhost", "FTupdate", "update", "FoodTracker");
@@ -16,7 +17,8 @@
         echo "Failed to connect to MySQL: " . mysqli_connect_error();
     }
 
-    $query = "UPDATE `FoodTracker`.`" . $table . "` SET `amount` = '" . $amount . "' WHERE `" . $table . "`.`type` = '" . $type . "'";
+    $query = "UPDATE `FoodTracker`.`" . $table . "` SET `amount`= '" . $amount . "' WHERE `" 
+           . $table . "`.`type`= '" . $type . "' AND `user_id`=" . $id;
 
     mysqli_query($con, $query);
 
