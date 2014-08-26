@@ -1,5 +1,11 @@
 <?php
 
+$familySize = $_POST['family'];
+
+echo "<br />family size: " . $familySize . "<br />";
+
+var_dump($_POST);
+
 $con = mysqli_connect("localhost", "FTselect", "select", "FoodTracker");
 
 $query = "SELECT `user_id` FROM `user` WHERE `email` = '" . $_POST['email'] . "'";
@@ -21,97 +27,211 @@ $con = mysqli_connect("localhost", "FTinsert", "insert", "FoodTracker");
  */
 
 $query = "INSERT INTO `cooking_essentials`(`user_id`, `type`, `amount`, `amount_needed`, `measure`) values(" 
-       . $userID . ", 'yeast', 0, 3, 'lbs')";
+       . $userID . ", 'baking powder', 0, " . 1 * $familySize . ", 'lbs')";
 
 echo $query;
 mysqli_query($con, $query);
 
 $query = "INSERT INTO `cooking_essentials`(`user_id`, `type`, `amount`, `amount_needed`, `measure`) values(" 
-       . $userID . ", 'baking powder', 0, 6, 'lbs')";
+       . $userID . ", 'baking soda', 0, " . 1 * $familySize . ", 'lbs')";
+
+echo $query;
+mysqli_query($con, $query);
+
+$query = "INSERT INTO `cooking_essentials`(`user_id`, `type`, `amount`, `amount_needed`, `measure`) values(" 
+       . $userID . ", 'yeast', 0, " . 1 * $familySize . ", 'lbs')";
+
+echo $query;
+mysqli_query($con, $query);
+
+$query = "INSERT INTO `cooking_essentials`(`user_id`, `type`, `amount`, `amount_needed`, `measure`) values(" 
+       . $userID . ", 'salt', 0, " . 5 * $familySize . ", 'lbs')";
+
+echo $query;
+mysqli_query($con, $query);
+
+$query = "INSERT INTO `cooking_essentials`(`user_id`, `type`, `amount`, `amount_needed`, `measure`) values(" 
+       . $userID . ", 'vinegar', 0, " . 1 * $familySize . ", 'lbs')";
 
 echo $query;
 mysqli_query($con, $query);
 
 $query = "INSERT INTO `fats_and_oils`(`user_id`, `type`, `amount`, `amount_needed`, `measure`) values(" 
-       . $userID . ", 'shortening', 0, 24, 'lbs')";
+       . $userID . ", 'shortening', 0, " . 24 * $familySize . ", 'lbs')";
 
 echo $query;
 mysqli_query($con, $query);
 
 $query = "INSERT INTO `fats_and_oils`(`user_id`, `type`, `amount`, `amount_needed`, `measure`) values(" 
-       . $userID . ", 'peanut butter', 0, 24, 'lbs')";
+       . $userID . ", 'vegtable oil', 0, " . 2 * $familySize . ", 'gals')";
+
+echo $query;
+mysqli_query($con, $query);
+
+$query = "INSERT INTO `fats_and_oils`(`user_id`, `type`, `amount`, `amount_needed`, `measure`) values(" 
+       . $userID . ", 'mayonnaise ', 0, " . 2 * $familySize . ", 'qts')";
+
+echo $query;
+mysqli_query($con, $query);
+
+$query = "INSERT INTO `fats_and_oils`(`user_id`, `type`, `amount`, `amount_needed`, `measure`) values(" 
+       . $userID . ", 'salad dressing ', 0, " . 1 * $familySize . ", 'qts')";
+
+echo $query;
+mysqli_query($con, $query);
+
+$query = "INSERT INTO `fats_and_oils`(`user_id`, `type`, `amount`, `amount_needed`, `measure`) values(" 
+       . $userID . ", 'peanut butter', 0, " . 4 * $familySize . ", 'lbs')";
 
 echo $query;
 mysqli_query($con, $query);
 
 $query = "INSERT INTO `grains`(`user_id`, `type`, `amount`, `amount_needed`, `measure`) values(" 
-       . $userID . ", 'flour', 0, 150, 'lbs')";
+       . $userID . ", 'wheat', 0, " . 150 * $familySize . ", 'lbs')";
 
 echo $query;
 mysqli_query($con, $query);
 
 $query = "INSERT INTO `grains`(`user_id`, `type`, `amount`, `amount_needed`, `measure`) values(" 
-       . $userID . ", 'rice', 0, 300, 'lbs')";
+       . $userID . ", 'flour', 0, " . 25 * $familySize . ", 'lbs')";
 
 echo $query;
 mysqli_query($con, $query);
 
 $query = "INSERT INTO `grains`(`user_id`, `type`, `amount`, `amount_needed`, `measure`) values(" 
-       . $userID . ", 'oats', 0, 150, 'lbs')";
+       . $userID . ", 'corn meal', 0, " . 25 * $familySize . ", 'lbs')";
 
 echo $query;
 mysqli_query($con, $query);
 
 $query = "INSERT INTO `grains`(`user_id`, `type`, `amount`, `amount_needed`, `measure`) values(" 
-       . $userID . ", 'pasta', 0, 150, 'lbs')";
+       . $userID . ", 'oats', 0, " . 25 * $familySize . ", 'lbs')";
+
+echo $query;
+mysqli_query($con, $query);
+
+$query = "INSERT INTO `grains`(`user_id`, `type`, `amount`, `amount_needed`, `measure`) values(" 
+       . $userID . ", 'rice', 0, " . 50 * $familySize . ", 'lbs')";
+
+echo $query;
+mysqli_query($con, $query);
+
+$query = "INSERT INTO `grains`(`user_id`, `type`, `amount`, `amount_needed`, `measure`) values(" 
+       . $userID . ", 'pasta', 0, " . 25 * $familySize . ", 'lbs')";
 
 echo $query;
 mysqli_query($con, $query);
 
 $query = "INSERT INTO `legumes`(`user_id`, `type`, `amount`, `amount_needed`, `measure`) values(" 
-       . $userID . ", 'lentils', 0, 30, 'lbs')";
+       . $userID . ", 'dry beans', 0, " . 30 * $familySize . ", 'lbs')";
 
 echo $query;
 mysqli_query($con, $query);
 
 $query = "INSERT INTO `legumes`(`user_id`, `type`, `amount`, `amount_needed`, `measure`) values(" 
-       . $userID . ", 'dry soup mix', 0, 30, 'lbs')";
+       . $userID . ", 'lima beans', 0, " . 5 * $familySize . ", 'lbs')";
+
+echo $query;
+mysqli_query($con, $query);
+
+$query = "INSERT INTO `legumes`(`user_id`, `type`, `amount`, `amount_needed`, `measure`) values(" 
+       . $userID . ", 'soy beans', 0, " . 10 * $familySize . ", 'lbs')";
+
+echo $query;
+mysqli_query($con, $query);
+
+$query = "INSERT INTO `legumes`(`user_id`, `type`, `amount`, `amount_needed`, `measure`) values(" 
+       . $userID . ", 'split peas', 0, " . 5 * $familySize . ", 'lbs')";
+
+echo $query;
+mysqli_query($con, $query);
+
+$query = "INSERT INTO `legumes`(`user_id`, `type`, `amount`, `amount_needed`, `measure`) values(" 
+       . $userID . ", 'lentils', 0, " . 5 * $familySize . ", 'lbs')";
+
+echo $query;
+mysqli_query($con, $query);
+
+$query = "INSERT INTO `legumes`(`user_id`, `type`, `amount`, `amount_needed`, `measure`) values(" 
+       . $userID . ", 'dry soup mix', 0, " . 5 * $familySize . ", 'lbs')";
 
 echo $query;
 mysqli_query($con, $query);
 
 $query = "INSERT INTO `milk`(`user_id`, `type`, `amount`, `amount_needed`, `measure`) values(" 
-       . $userID . ", 'dry milk', 0, 360, 'lbs')";
+       . $userID . ", 'dry milk', 0, " . 60 * $familySize . ", 'lbs')";
 
 echo $query;
 mysqli_query($con, $query);
 
 $query = "INSERT INTO `milk`(`user_id`, `type`, `amount`, `amount_needed`, `measure`) values(" 
-       . $userID . ", 'other', 0, 78, 'lbs')";
+       . $userID . ", 'evaporated  milk', 0, " . 12 * $familySize . ", 'cans')";
+
+echo $query;
+mysqli_query($con, $query);
+
+$query = "INSERT INTO `milk`(`user_id`, `type`, `amount`, `amount_needed`, `measure`) values(" 
+       . $userID . ", 'other', 0, " . 13 * $familySize . ", 'lbs')";
 
 echo $query;
 mysqli_query($con, $query);
 
 $query = "INSERT INTO `sugars`(`user_id`, `type`, `amount`, `amount_needed`, `measure`) values(" 
-       . $userID . ", 'sugar', 0, 240, 'lbs')";
+       . $userID . ", 'honey', 0, " . 3 * $familySize . ", 'lbs')";
 
 echo $query;
 mysqli_query($con, $query);
 
 $query = "INSERT INTO `sugars`(`user_id`, `type`, `amount`, `amount_needed`, `measure`) values(" 
-       . $userID . ", 'fruit drink powdered', 0, 36, 'lbs')";
+       . $userID . ", 'sugar', 0, " . 40 * $familySize . ", 'lbs')";
+
+echo $query;
+mysqli_query($con, $query);
+
+$query = "INSERT INTO `sugars`(`user_id`, `type`, `amount`, `amount_needed`, `measure`) values(" 
+       . $userID . ", 'brown sugar', 0, " . 3 * $familySize . ", 'lbs')";
+
+echo $query;
+mysqli_query($con, $query);
+
+$query = "INSERT INTO `sugars`(`user_id`, `type`, `amount`, `amount_needed`, `measure`) values(" 
+       . $userID . ", 'molasses ', 0, " . 1 * $familySize . ", 'lbs')";
+
+echo $query;
+mysqli_query($con, $query);
+
+$query = "INSERT INTO `sugars`(`user_id`, `type`, `amount`, `amount_needed`, `measure`) values(" 
+       . $userID . ", 'corn syrup', 0, " . 3 * $familySize . ", 'lbs')";
+
+echo $query;
+mysqli_query($con, $query);
+
+$query = "INSERT INTO `sugars`(`user_id`, `type`, `amount`, `amount_needed`, `measure`) values(" 
+       . $userID . ", 'jam', 0, " . 3 * $familySize . ", 'lbs')";
+
+echo $query;
+mysqli_query($con, $query);
+
+$query = "INSERT INTO `sugars`(`user_id`, `type`, `amount`, `amount_needed`, `measure`) values(" 
+       . $userID . ", 'fruit drink powdered', 0, " . 6 * $familySize . ", 'lbs')";
+
+echo $query;
+mysqli_query($con, $query);
+
+$query = "INSERT INTO `sugars`(`user_id`, `type`, `amount`, `amount_needed`, `measure`) values(" 
+       . $userID . ", 'flavored gelatin', 0, " . 1 * $familySize . ", 'lbs')";
 
 echo $query;
 mysqli_query($con, $query);
 
 $query = "INSERT INTO `water`(`user_id`, `type`, `amount`, `amount_needed`, `measure`) values(" 
-       . $userID . ", 'water', 0, 84, 'gals')";
+       . $userID . ", 'water', 0, " . 14 * $familySize . ", 'gals')";
 
 echo $query;
 mysqli_query($con, $query);
 
 $query = "INSERT INTO `water`(`user_id`, `type`, `amount`, `amount_needed`, `measure`) values(" 
-       . $userID . ", 'bleach', 0, 6, 'gals')";
+       . $userID . ", 'bleach', 0, " . 1 * $familySize . ", 'gals')";
 
 echo $query;
 mysqli_query($con, $query);

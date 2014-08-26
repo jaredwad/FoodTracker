@@ -32,12 +32,12 @@
     <div class="container">
         <form class="form-signin" role="form" action="addUser.php" method="post">
             <h2 class="form-signin-heading">Please Enter Your Information</h2>
-            <input name="first_name"            class="form-control" placeholder="First Name"    required autofocus >
-            <input name="middle_name"           class="form-control" placeholder="Middle Name"                      >
-            <input name="last_name"             class="form-control" placeholder="Last Name"     required           >
-            <input name="email" type="email"    class="form-control" placeholder="Email address" required           >
-            <input name="pass"  type="password" class="form-control" placeholder="Password"      required           >
-            
+            <input name="first_name"            class="form-control" placeholder="First Name"        required autofocus >
+            <input name="middle_name"           class="form-control" placeholder="Middle Name"                          >
+            <input name="last_name"             class="form-control" placeholder="Last Name"                   required >
+            <input name="family_size"           class="form-control" placeholder="Number of people in familly" required >
+            <input name="email" type="email"    class="form-control" placeholder="Email address"               required >
+            <input name="pass"  type="password" class="form-control" placeholder="Password"                    required >
             <button class="btn btn-lg btn-primary btn-block" type="submit">Create User!</button>
         </form>
     </div>
