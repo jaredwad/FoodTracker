@@ -32,6 +32,35 @@ function lcallfirst($string) {
         }
     }
 
+    if (!function_exists('ucfirst')) {
+
+        function ucfirst($str) {
+
+            $str = is_string($str) ? $str : '';
+
+            if(mb_strlen($str) > 0) {
+                $str[0] = mb_strtoupper($str[0]);
+            }
+
+            return $str;
+        }
+    }
+
+    if (!function_exists('ucwords')) {
+
+        function ucwords($str) {
+
+            $str = explode(" ",$str);
+            
+            for($i=0; $i<count($str); $i++) {
+                $str[$i]=ufirst($str[$i]);
+            }
+
+            return implode(" ",$str);
+        }
+    }
+
+
     if (!isset($_SESSION[ 'user_id']) && !empty($_SESSION['user_id'])) { 
         header( 'Location: index.php');
     } 
@@ -67,7 +96,7 @@ function lcallfirst($string) {
     while($row = mysqli_fetch_array($set)) {
         $totalSize  += $row['amount'];
         $neededSize += $row['amount_needed'];
-        $list = $list . "<b>" . $row['type'] . " <br> Current: " . $row['amount'] . ' ' . $row['measure'] . 
+        $list = $list . "<b>" . ucwords($row['type']) . " <br> Current: " . $row['amount'] . ' ' . $row['measure'] . 
             " <br>Storage Goal: " . $row['amount_needed'] . ' ' . $row['measure'] . " </b> <br> <br>\r\n" .
             "<form action='add.php' method='post'>\r\nChange:&nbsp;\r\n" . 
             "<input type='number' name='amount' required>\r\n<input type='submit' value='Submit'>\r\n" .
