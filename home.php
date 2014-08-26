@@ -399,7 +399,7 @@
             <div class="pieText">
             <br /><br />Welcome To FoodTracker!
             <br /><br />To see the status of any category of your food storage hover the cursor over the corresponding pie slice.
-            <br /><br />To edit the contents of the category click on the corresponding pie slice. The amounts displayed are in terms of current storage versus your storage goal.
+            <br /><br />To edit the contents of the category click on the corresponding pie slice, or select a category from the Categories list in the menu. The amounts displayed as you mouse over each slice are in terms of current storage versus your storage goal.
             <br /><br />The colors of the slices corespond to the completeness of each category,
             <span class="red">red   </span> 50% or less,
             <span class="yellow">yellow</span> between 50% and 100%,
